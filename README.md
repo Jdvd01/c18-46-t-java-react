@@ -36,3 +36,71 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
 
   * UX/UI:
     - Figma para prototipos.
+
+## 🛠️ Tecnologías
+
+<table>
+  <thead>
+    <tr>
+      <th>Front-End</th>
+      <th>UX/UI</th>
+      <th>Back-End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <img alt="javascript" src="https://img.shields.io/badge/Javascript-%23F7DF1E?logo=javascript&logoColor=white">
+      </td>
+      <td>
+        <img alt="figma" src="https://img.shields.io/badge/Figma-%23F24E1E?logo=figma&logoColor=white">
+      </td>
+      <td>
+        <img alt="java" src="https://img.shields.io/badge/Javascript-%E76F00?logo=java&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="react.js" src="https://img.shields.io/badge/React.js-%2361DAFB?logo=react&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+      <img alt="node.js" src="https://img.shields.io/badge/Node.js-%23339933?logo=node.js&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img alt="tailwind" src="https://img.shields.io/badge/Tailwind-%2306B6D4?logo=tailwind%20css&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="express.js" src="https://img.shields.io/badge/Express.js-%23000000?logo=Express&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <img alt="axios" src="https://img.shields.io/badge/Axios-%235A29E4?logo=axios&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="mongodb" src="https://img.shields.io/badge/MongoDB-%2347A248?logo=mongodb&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td>
+       <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
+      </td>
+      <td></td>
+      <td>
+        <img alt="mongoose" src="https://img.shields.io/badge/Mongoose-%23880000?logo=Mongoose">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <img alt="json-web-tokens" src="https://img.shields.io/badge/JSON%20Web%20Tokens-%23000000?logo=json%20web%20tokens&logoColor=white">
+      </td>
+    </tr>
+  </tbody>
+</table>
