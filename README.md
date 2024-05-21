@@ -1,12 +1,12 @@
 ﻿# c18-46-t-java-react
 
-﻿#﻿**E-Commerce**
+﻿**E-Commerce**
 
 ![Base of a stack of b(1)](https://github.com/No-Country/c18-46-t-java-react/assets/169822154/9a6aea58-a737-4ad6-b2c8-5e8cf762299e)
 *﻿*Booklin**
 Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través de una plataforma en línea. Su propósito es crear un mercado accesible y conveniente donde los amantes de los libros puedan encontrar una amplia variedad de títulos, desde bestsellers actuales hasta ediciones raras y coleccionables.
 
- # Equipo
+**Equipo**
   Desarrollador Full-Stack: 
   Helios Barrera https://www.linkedin.com/in/qlessenp/
   Diseñador de Experiencia de Usuario (UX): 
