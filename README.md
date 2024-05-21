@@ -32,11 +32,11 @@ Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través
    
 **Tecnologías**
 
-  Frontend:
+  * Frontend:
      - React+Vite, TailwindCSS, Redux.
 
-  Backend:
+  * Backend:
     - Java 21, mysql, spring boot, maven, JWT, Postman, oauth 2.0 (opcional).
 
-  UX/UI:
+  * UX/UI:
     - Figma para portotipos.
