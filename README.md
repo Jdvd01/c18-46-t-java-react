@@ -22,7 +22,7 @@ Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través
     - Jose Velasquez
   
   * Desarrollador Backend:
-    - Virginia Giordano https://www.linkedin.com/in/virginia-giardino-904a13203/ 
+    - Virginia Giardino https://www.linkedin.com/in/virginia-giardino-904a13203/ 
     - Kevin Barrutia https://www.linkedin.com/in/kevin-barrutia-1a42a01aa/
     - Rafael Toresani https://www.linkedin.com/in/rtoresani/
     - José Alfredo 
