@@ -1,8 +1,8 @@
 ﻿# c18-46-t-java-react
 
-**E-Commerce**
+﻿#﻿#**E-Commerce**
 
-﻿#﻿# **Booklin**
+﻿*Booklin**
 Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través de una plataforma en línea. Su propósito es crear un mercado accesible y conveniente donde los amantes de los libros puedan encontrar una amplia variedad de títulos, desde bestsellers actuales hasta ediciones raras y coleccionables.
 
  # Equipo
