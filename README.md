@@ -28,4 +28,5 @@ Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través
     * José Alfredo 
   
   Project Manager: 
+    
     * Karina Sanchez https://www.linkedin.com/in/karinasanchezgamez/ 
