@@ -1,0 +1,4 @@
+/* Es necesario para tener los estilos de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
