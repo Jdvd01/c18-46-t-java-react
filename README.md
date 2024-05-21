@@ -27,5 +27,5 @@ Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través
     * Rafael Toresani https://www.linkedin.com/in/rtoresani/
     * José Alfredo 
   
-  * Project Manager:
+Project Manager:
     - Karina Sanchez https://www.linkedin.com/in/karinasanchezgamez/ 
