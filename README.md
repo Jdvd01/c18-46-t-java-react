@@ -28,4 +28,15 @@ Es un proyecto de ecommerce diseñado para facilitar la compra y venta a través
     - José Alfredo 
   
   * Project Manager:
-    - Karina Sanchez https://www.linkedin.com/in/karinasanchezgamez/ 
+    - Karina Sanchez https://www.linkedin.com/in/karinasanchezgamez/
+   
+**Tecnologías**
+
+  Frontend:
+     - React+Vite, TailwindCSS, Redux.
+
+  Backend:
+    - Java 21, mysql, spring boot, maven, JWT, Postman, oauth 2.0 (opcional).
+
+  UX/UI:
+    - Figma para portotipos.
