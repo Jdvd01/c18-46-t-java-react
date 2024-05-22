@@ -70,7 +70,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
     </tr>
     <tr>
       <td>
-        <img alt="tailwind" src="https://img.shields.io/badge/Tailwind-%2306B6D4?logo=tailwind%20css&logoColor=white">
+        <img alt="tailwind" src="https://img.shields.io/badge/Tailwind-%2306B6D4?logo=tailwind%20css">
       </td>
       <td></td>
       <td>
