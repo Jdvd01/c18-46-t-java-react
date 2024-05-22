@@ -56,7 +56,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
         <img alt="figma" src="https://img.shields.io/badge/Figma-%23F24E1E?logo=figma&logoColor=white">
       </td>
       <td>
-        <img alt="java" src="https://img.shields.io/badge/Java-%E76F00?logo=java&logoColor=white">
+        <img alt="java" src="https://img.shields.io/badge/java-%23ED8B00.svg?logo=openjdk&logoColor=white">
       </td>
     </tr>
     <tr>
