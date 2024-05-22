@@ -24,6 +24,8 @@ const Example = () => {
 		(state) => state.example
 	)
 
+	console.log('Cambios del login')
+
 	// Probando redux con una solicitud asincrona
 	useEffect(() => {
 		dispatch(
