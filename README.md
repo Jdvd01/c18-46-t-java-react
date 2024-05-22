@@ -65,7 +65,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </td>
       <td></td>
       <td>
-      <img alt="springboot" src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot">
+      <img alt="springboot" src="https://img.shields.io/badge/Spring_Boot-F2F4F9?logo=spring-boot&logoColor=white">
       </td>
     </tr>
     <tr>
