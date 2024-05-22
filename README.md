@@ -4,12 +4,12 @@
 
 Es un proyecto de e-commerce diseñado para facilitar la compra y venta a través de una plataforma en línea. Su propósito es crear un mercado accesible y conveniente donde los amantes de los libros puedan encontrar una amplia variedad de títulos, desde bestsellers actuales hasta ediciones raras y coleccionables.
 
-<h1 align="center"> 
-  🛠️ Tecnologías
-</h1>
 
-<div style="margin-left: auto; margin-right: auto; width: 30%">
-  <table align="center">
+## 🛠️ Tecnologías
+
+
+<div>
+  <table>
     <thead>
       <tr>
         <th>Front-End</th>
@@ -83,11 +83,10 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
   </table>
 </div>
 
-<h1 align="center"> 
-  🧑‍🤝‍🧑 Equipo
-</h1>
 
-<div style="margin-left: auto; margin-right: auto; width: 35%">
+## 🧑‍🤝‍🧑 Equipo
+
+<div>
   <dl>
   <dd>
     <h3>📝 Project Manager</h3>
