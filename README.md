@@ -56,7 +56,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
         <img alt="figma" src="https://img.shields.io/badge/Figma-%23F24E1E?logo=figma&logoColor=white">
       </td>
       <td>
-        <img alt="java" src="https://img.shields.io/badge/Javascript-%E76F00?logo=java&logoColor=white">
+        <img alt="java" src="https://img.shields.io/badge/Java-%E76F00?logo=java&logoColor=white">
       </td>
     </tr>
     <tr>
@@ -100,6 +100,13 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       <td></td>
       <td>
         <img alt="json-web-tokens" src="https://img.shields.io/badge/JSON%20Web%20Tokens-%23000000?logo=json%20web%20tokens&logoColor=white">
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <img alt="swagger" src="https://img.shields.io/badge/Swagger-85EA2D?logo=Swagger&logoColor=white">
       </td>
     </tr>
   </tbody>
