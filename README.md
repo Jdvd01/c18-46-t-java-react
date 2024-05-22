@@ -74,7 +74,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </td>
       <td></td>
       <td>
-        <img alt="express.js" src="https://img.shields.io/badge/Express.js-%23000000?logo=Express&logoColor=white">
+        <img alt="mysql" src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white">
       </td>
     </tr>
     <tr>
@@ -83,7 +83,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </td>
       <td></td>
       <td>
-        <img alt="mongodb" src="https://img.shields.io/badge/MongoDB-%2347A248?logo=mongodb&logoColor=white">
+        <img alt="postman" src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white">
       </td>
     </tr>
     <tr>
