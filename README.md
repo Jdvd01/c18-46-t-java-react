@@ -65,7 +65,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </td>
       <td></td>
       <td>
-      <img alt="node.js" src="https://img.shields.io/badge/Node.js-%23339933?logo=node.js&logoColor=white">
+      <img alt="springboot" src="https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot">
       </td>
     </tr>
     <tr>
