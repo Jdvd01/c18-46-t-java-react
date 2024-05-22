@@ -92,7 +92,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </td>
       <td></td>
       <td>
-        <img alt="mongoose" src="https://img.shields.io/badge/Mongoose-%23880000?logo=Mongoose">
+        <img alt="maven" src="https://img.shields.io/badge/apache_maven-C71A36?logo=apachemaven&logoColor=white">
       </td>
     </tr>
     <tr>
