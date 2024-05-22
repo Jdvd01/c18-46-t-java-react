@@ -13,7 +13,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
     - David Cayo [LinkedIn](https://www.linkedin.com/in/davidcayo/) - [Github](https://github.com/davidcayo).
   
   * Desarrolladores Frontend: 
-    - Javier Moran [LinkedIn](https://www.linkedin.com/in/javier-albornoz-moran/) - [Github](https://github.com/tecnycompu).
+    - Javier Moran [LinkedIn](https://www.linkedin.com/in/javier-moran-rodriguez/) - [Github](https://github.com/tecnycompu).
     - Angeles Reyes [LinkedIn](https://www.linkedin.com/in/mariangel-reyes-960428214) - [Github](https://github.com/AngelQReid).
     - Jose Velasquez [LinkedIn](https://www.linkedin.com/in/jdvd01/) - [Github](https://github.com/jdvd01).
   
