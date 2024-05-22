@@ -4,110 +4,317 @@
 
 Es un proyecto de e-commerce diseñado para facilitar la compra y venta a través de una plataforma en línea. Su propósito es crear un mercado accesible y conveniente donde los amantes de los libros puedan encontrar una amplia variedad de títulos, desde bestsellers actuales hasta ediciones raras y coleccionables.
 
-**Equipo**
-  
-  * Desarrollador Full-Stack: 
-    - Helios Barrera [LinkedIn](https://www.linkedin.com/in/qlessenp/) - [Github](https://github.com/quserforgitp).
-  
-  * Diseñador de Interfaz y Experiencia de Usuario (UX/UI):
-    - David Cayo [LinkedIn](https://www.linkedin.com/in/davidcayo/) - [Github](https://github.com/davidcayo).
-  
-  * Desarrolladores Frontend: 
-    - Javier Moran [LinkedIn](https://www.linkedin.com/in/javier-moran-rodriguez/) - [Github](https://github.com/tecnycompu).
-    - Angeles Reyes [LinkedIn](https://www.linkedin.com/in/mariangel-reyes-960428214) - [Github](https://github.com/AngelQReid).
-    - Jose Velasquez [LinkedIn](https://www.linkedin.com/in/jdvd01/) - [Github](https://github.com/jdvd01).
-  
-  * Desarrolladores Backend:
-    - Virginia Giardino [LinkedIn](https://www.linkedin.com/in/virginia-giardino-904a13203/) - [Github](https://github.com/GiardinoV).
-    - Kevin Barrutia [LinkedIn](https://www.linkedin.com/in/kevin-barrutia-1a42a01aa/) - [Github](https://github.com/KevinBarrutia).
-    - Rafael Toresani [LinkedIn](https://www.linkedin.com/in/rtoresani/) - [Github](https://github.com/RafaToresani).
-    - José Alfredo [Github](https://github.com/AlfredDev).
-  
-  * Project Manager:
-    - Karina Sanchez [LinkedIn](https://www.linkedin.com/in/karinasanchezgamez/) - [Github](https://github.com/Karinathalie).
-   
-**Tecnologías**
+<h1 align="center"> 
+  🛠️ Tecnologías
+</h1>
 
-  * Frontend:
-     - React+Vite, TailwindCSS, Redux.
+<div style="margin-left: auto; margin-right: auto; width: 30%">
+  <table align="center">
+    <thead>
+      <tr>
+        <th>Front-End</th>
+        <th>UX/UI</th>
+        <th>Back-End</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img alt="javascript" src="https://img.shields.io/badge/Javascript-%23F7DF1E?logo=javascript&logoColor=white">
+        </td>
+        <td>
+          <img alt="figma" src="https://img.shields.io/badge/Figma-%23F24E1E?logo=figma&logoColor=white">
+        </td>
+        <td>
+          <img alt="java" src="https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img alt="react.js" src="https://img.shields.io/badge/React.js-%2361DAFB?logo=react&logoColor=white">
+        </td>
+        <td></td>
+        <td>
+        <img alt="springboot" src="https://img.shields.io/badge/Spring_Boot-F2F4F9?logo=spring-boot&logoColor=white">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img alt="tailwind" src="https://img.shields.io/badge/Tailwind-%2306B6D4?logo=tailwind%20css">
+        </td>
+        <td></td>
+        <td>
+          <img alt="mysql" src="https://img.shields.io/badge/MySQL-005C84?logo=mysql&logoColor=white">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img alt="axios" src="https://img.shields.io/badge/Axios-%235A29E4?logo=axios&logoColor=white">
+        </td>
+        <td></td>
+        <td>
+          <img alt="postman" src="https://img.shields.io/badge/Postman-FF6C37?logo=Postman&logoColor=white">
+        </td>
+      </tr>
+      <tr>
+        <td>
+        <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
+        </td>
+        <td></td>
+        <td>
+          <img alt="maven" src="https://img.shields.io/badge/Apache_maven-C71A36?logo=apachemaven&logoColor=white">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          <img alt="json-web-tokens" src="https://img.shields.io/badge/JSON%20Web%20Tokens-%23000000?logo=json%20web%20tokens&logoColor=white">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          <img alt="swagger" src="https://img.shields.io/badge/Swagger-85EA2D?logo=Swagger&logoColor=white">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-  * Backend:
-    - Java 21, mysql, spring boot, maven, JWT, Postman, oauth 2.0 (opcional).
+<h1 align="center"> 
+  🧑‍🤝‍🧑 Equipo
+</h1>
 
-  * UX/UI:
-    - Figma para prototipos.
+<div style="margin-left: auto; margin-right: auto; width: 35%">
+  <dl>
+  <dd>
+    <h3>📝 Project Manager</h3>
+    <dl>
+      <dd>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Github</th>
+              <th>Linkedin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Karina Sanchez</td>
+              <td>
+                <a href="https://github.com/Karinathalie" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/karinasanchezgamez/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dd>
+    </dl>
+  </dd>
+  <dd>
+    <h3>⚛️ Front-End</h3>
+    <dl>
+      <dd>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Github</th>
+              <th>Linkedin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Javier Moran</td>
+              <td>
+                <a href="https://github.com/tecnycompu" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/javier-moran-rodriguez/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>Jose Velasquez</td>
+              <td>
+                <a href="https://github.com/jdvd01" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/jdvd01/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dd>
+    </dl>
+  </dd>
+  <dd>
+    <h3>💻 Back-End</h3>
+    <dl>
+      <dd>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Github</th>
+              <th>Linkedin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Virginia Giardino</td>
+              <td>
+                <a href="https://github.com/GiardinoV" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/virginia-giardino-904a13203/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>Kevin Barrutia</td>
+              <td>
+                <a href="https://github.com/KevinBarrutia" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/kevin-barrutia-1a42a01aa/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>Rafael Toresani</td>
+              <td>
+                <a href="https://github.com/RafaToresani" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/rtoresani/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>Alfredo Garcia</td>
+              <td>
+                <a href="https://github.com/AlfredDev" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <!-- <a href="" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dd>
+    </dl>
+  </dd>
+  <dd>
+    <h3>🛠️ Full-Stack</h3>
+    <dl>
+      <dd>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Github</th>
+              <th>Linkedin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Helios Barrera</td>
+              <td>
+                <a href="https://github.com/quserforgitp" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/qlessenp/" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td>Mariangel Reyes</td>
+              <td>
+                <a href="https://github.com/AngelQReid" target="_blank">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/mariangel-reyes-960428214" target="_blank">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dd>
+    </dl>
+  </dd>
+  <dd>
+    <h3>🎨 Diseño UX/UI</h3>
+    <dl>
+      <dd>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Github</th>
+              <th>Linkedin</th>
+              <th>Behance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>David Cayo</td>
+              <td>
+                <a href="https://github.com/davidcayo">
+                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/in/davidcayo/">
+                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
+                </a>
+              </td>
+              <td>
+                <a href="https://www.behance.net/nehuengrosso">
+                  <img src="https://img.shields.io/badge/behance-%231769FF.svg?&style=for-the-badge&logo=behance&logoColor=white">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </dd>
+    </dl>
+  </dd>
+</dl>
 
-## 🛠️ Tecnologías
-
-<table>
-  <thead>
-    <tr>
-      <th>Front-End</th>
-      <th>UX/UI</th>
-      <th>Back-End</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <img alt="javascript" src="https://img.shields.io/badge/Javascript-%23F7DF1E?logo=javascript&logoColor=white">
-      </td>
-      <td>
-        <img alt="figma" src="https://img.shields.io/badge/Figma-%23F24E1E?logo=figma&logoColor=white">
-      </td>
-      <td>
-        <img alt="java" src="https://img.shields.io/badge/java-%23ED8B00.svg?logo=openjdk&logoColor=white">
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img alt="react.js" src="https://img.shields.io/badge/React.js-%2361DAFB?logo=react&logoColor=white">
-      </td>
-      <td></td>
-      <td>
-      <img alt="springboot" src="https://img.shields.io/badge/Spring_Boot-F2F4F9?logo=spring-boot&logoColor=white">
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <img alt="tailwind" src="https://img.shields.io/badge/Tailwind-%2306B6D4?logo=tailwind%20css">
-      </td>
-      <td></td>
-      <td>
-        <img alt="mysql" src="https://img.shields.io/badge/MySQL-005C84?logo=mysql&logoColor=white">
-      </td>
-    </tr>
-    <tr>
-      <td>
-         <img alt="axios" src="https://img.shields.io/badge/Axios-%235A29E4?logo=axios&logoColor=white">
-      </td>
-      <td></td>
-      <td>
-        <img alt="postman" src="https://img.shields.io/badge/Postman-FF6C37?logo=Postman&logoColor=white">
-      </td>
-    </tr>
-    <tr>
-      <td>
-       <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
-      </td>
-      <td></td>
-      <td>
-        <img alt="maven" src="https://img.shields.io/badge/apache_maven-C71A36?logo=apachemaven&logoColor=white">
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>
-        <img alt="json-web-tokens" src="https://img.shields.io/badge/JSON%20Web%20Tokens-%23000000?logo=json%20web%20tokens&logoColor=white">
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>
-        <img alt="swagger" src="https://img.shields.io/badge/Swagger-85EA2D?logo=Swagger&logoColor=white">
-      </td>
-    </tr>
-  </tbody>
-</table>
+</div>
