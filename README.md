@@ -304,7 +304,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
                 </a>
               </td>
               <td>
-                <a href="https://www.behance.net/nehuengrosso">
+                <a href="https://www.behance.net/davidcayo">
                   <img src="https://img.shields.io/badge/behance-%231769FF.svg?&style=for-the-badge&logo=behance&logoColor=white">
                 </a>
               </td>
