@@ -15,7 +15,7 @@ import java.util.Set;
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long inventoryid;
+    private Long inventoryId;
     @OneToOne(mappedBy = "inventory")
     @JsonBackReference
     private User user;

@@ -1,7 +1,7 @@
 package com.booklyn.Backend.Services;
 
 import com.booklyn.Backend.Models.Book.Book;
-import com.booklyn.Backend.Repository.BookRepository;
+import com.booklyn.Backend.Repository.Book.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

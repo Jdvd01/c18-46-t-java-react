@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class UserInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long infoid;
+    private Long infoId;
     private String firsName;
     private String lastName;
     private String dni;
