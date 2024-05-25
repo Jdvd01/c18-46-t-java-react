@@ -1,16 +1,15 @@
 package com.booklyn.Backend.Controllers;
 
-import com.booklyn.Backend.Services.BookService;
+import com.booklyn.Backend.Services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/books")
-public class BookController {
-
+@RequestMapping("/api/v1/carts")
+public class CartController {
     @Autowired
-    private BookService bookService;
+    private CartService cartService;
 
     // =====================================================================
     //                              GET
@@ -35,6 +34,4 @@ public class BookController {
     // =====================================================================
     //                              DELETE
     // =====================================================================
-
-
 }
