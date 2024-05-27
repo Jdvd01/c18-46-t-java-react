@@ -52,7 +52,7 @@ public class AuthController {
         }
 
         Optional<AuthResponse> response = authService.register(request);
-        if(response.isEmpty()) return ResponseEntity.badRequest().build();
+        if(response.isEmpty()) return ResponseEntity.badRequest().build(); // MEJORAR
 
         return ResponseEntity.ok(response.get());
     }

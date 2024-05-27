@@ -22,7 +22,7 @@ public class RegisterRequest {
     private String password;
 
     @NotBlank(message = "Please enter your name")
-    private String firsName;
+    private String firstName;
 
     @NotBlank(message = "Please enter your last name")
     private String lastName;

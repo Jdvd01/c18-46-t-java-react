@@ -67,7 +67,7 @@ public class AuthService {
         Address address = addressRepository.save(Address.builder().build());
 
         UserInfo userInfo = userInfoRepository.save(UserInfo.builder()
-                .firsName(request.getFirsName())
+                .firsName(request.getFirstName())
                 .lastName(request.getLastName())
                 .address(address)
                 .build());
