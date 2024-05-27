@@ -28,9 +28,16 @@ public class GlobalExceptionHandler {
     }
 
     /*==========================================   RESOURCE ALREADY EXIST   ==========================================*/
-
-
-
+    @ExceptionHandler(ResourceAlreadyExistException.class)
+    public ResponseEntity<ErrorResponse> handlerResourceAlreadyExistException(ResourceAlreadyExistException ex, WebRequest webRequest){
+        ErrorResponse response = ErrorResponse
+                .builder()
+                .dateTime(LocalDateTime.now())
+                .message(ex.getMessage())
+                .url(webRequest.getDescription(false).replace("uri=", ""))
+                .build();
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
     /*==========================================   RESOURCE NOT FOUND   ==========================================*/
 
 
