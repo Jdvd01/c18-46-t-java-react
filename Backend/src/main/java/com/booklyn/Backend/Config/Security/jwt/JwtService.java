@@ -1,6 +1,7 @@
 package com.booklyn.Backend.Config.Security.jwt;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -33,7 +34,7 @@ public class JwtService {
                 .claims(extraClaims)
                 .subject(user.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis()+1000*60*60*48))
+                .expiration(new Date(System.currentTimeMillis()+1000*20))
                 .signWith(getKey())
                 .compact();
     }
@@ -56,7 +57,10 @@ public class JwtService {
     {
         final String username = getUsernameFromToken(token);
 
-        return (username.equals(userDetails.getUsername())&& !isTokenExpired(token));
+        if(isTokenExpired(token)) throw new ExpiredJwtException(null, null, "Token has expired.");
+
+
+        return username.equals(userDetails.getUsername());
     }
 
     private Claims getAllClaims(String token){

@@ -1,6 +1,7 @@
 package com.booklyn.Backend.Exceptions;
 
 import com.booklyn.Backend.DTO.ErrorResponse;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
 
     /*==========================================   BAD REQUEST   ==========================================*/
     @ExceptionHandler(BadRequestException.class)
@@ -41,13 +41,28 @@ public class GlobalExceptionHandler {
     /*==========================================   RESOURCE NOT FOUND   ==========================================*/
 
 
+
+    /*==========================================   EXPIRED JWT  ==========================================*/
+    @ExceptionHandler(ExpiredJwtException.class)
+    public ResponseEntity<ErrorResponse> handlerExpiredJwtException(ExpiredJwtException ex, WebRequest webRequest){
+        ErrorResponse errorResponse = ErrorResponse
+                .builder()
+                .dateTime(LocalDateTime.now())
+                .message(ex.getMessage())
+                .url(webRequest.getDescription(false).replace("uri=", ""))
+                .build();
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
+    }
+
+
     /*==========================================   AUTHENTICATION EXCEPTION  ==========================================*/
     @ExceptionHandler(AuthenticationException.class)
     public ResponseEntity<ErrorResponse> handlerAuthenticationException(AuthenticationException ex, WebRequest webRequest) {
         ErrorResponse errorResponse = ErrorResponse
                 .builder()
                 .dateTime(LocalDateTime.now())
-                .message("Credenciales invalidas. Ingrese un correo electrónico y contraseña registrados.")
+                .message("Invalid credentials.")
                 .url(webRequest.getDescription(false).replace("uri=", ""))
                 .build();
         return new ResponseEntity<>(errorResponse, HttpStatus.UNAUTHORIZED);
