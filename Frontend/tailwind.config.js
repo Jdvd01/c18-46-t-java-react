@@ -4,70 +4,88 @@ export default {
 	theme: {
 		// break points (se mapean a media queries min-width)
 		screens: {
-			'phone': '430px',
-			'tablet': '764px',
-			'desktop': '1440px',
+			phone: '430px',
+			tablet: '744px',
+			desktop: '1440px',
 		},
 		extend: {
 			// typography
 			fontFamily: {
-				'dm-sans': ['"DM sans"','sans-serif'],
-				'inter':['Inter','sans-serif']
+				'dm-sans': ['"DM sans"', 'sans-serif'],
+				inter: ['Inter', 'sans-serif'],
 			},
 			fontSize: {
 				// usar con font-dm-sans
-				'h1': ['40px', {
-					lineHeight: '52px',
-					fontWeight: '700',
-				}],
-				'h2': ['32px', {
-					lineHeight: '44px',
-					fontWeight: '500',
-				}],
+				h1: [
+					'40px',
+					{
+						lineHeight: '52px',
+						fontWeight: '700',
+					},
+				],
+				h2: [
+					'32px',
+					{
+						lineHeight: '44px',
+						fontWeight: '500',
+					},
+				],
 				// usar con font-inter
-				'body-1': ['18px', {
-					lineHeight: '28px',
-					fontWeight: '500',
-				}],
-				'body-2': ['16px', {
-					lineHeight: '26px',
-					fontWeight: '400',
-				}],
-				'body-3': ['14px', {
-					lineHeight: '24px',
-					fontWeight: '400',
-				}],
+				'body-1': [
+					'18px',
+					{
+						lineHeight: '28px',
+						fontWeight: '500',
+					},
+				],
+				'body-2': [
+					'16px',
+					{
+						lineHeight: '26px',
+						fontWeight: '400',
+					},
+				],
+				'body-3': [
+					'14px',
+					{
+						lineHeight: '24px',
+						fontWeight: '400',
+					},
+				],
 			},
 			boxShadow: {
 				'zero-elevation': '0px 8px 16px -4px #16223314',
-				'low-elevation': '0px 16px 24px 0px #16223314,0px 4px 8px -4px #16223314',
-				'medium-elevation': '0px 16px 32px 0px #16223329,0px 4px 12px -4px #1622331F',
-				'high-elevation': '0px 4px 4px 0px #1622330A,0px 4px 24px 0px #1622330A,0px 24px 24px 0px #1622330A,0px 32px 32px 0px #1622330A,0px 64px 64px 0px #1622331F,0px 120px 120px 0px #16223314',
+				'low-elevation':
+					'0px 16px 24px 0px #16223314,0px 4px 8px -4px #16223314',
+				'medium-elevation':
+					'0px 16px 32px 0px #16223329,0px 4px 12px -4px #1622331F',
+				'high-elevation':
+					'0px 4px 4px 0px #1622330A,0px 4px 24px 0px #1622330A,0px 24px 24px 0px #1622330A,0px 32px 32px 0px #1622330A,0px 64px 64px 0px #1622331F,0px 120px 120px 0px #16223314',
 			},
 			colors: {
 				// 'blue'
-        'primary-50': '#EBEAFC',
-        'primary-100': '#C0BEF6',
-        'primary-200': '#A29EF2',
-        'primary-300': '#7872EC',
-        'primary-400': '#5D56E8',
-        'primary-500': '#352CE2',
-        'primary-600': '#3028CE',
-        'primary-700': '#261FA0',
-        'primary-800': '#1D187C',
-        'primary-900': '#16125F',
+				'primary-50': '#EBEAFC',
+				'primary-100': '#C0BEF6',
+				'primary-200': '#A29EF2',
+				'primary-300': '#7872EC',
+				'primary-400': '#5D56E8',
+				'primary-500': '#352CE2',
+				'primary-600': '#3028CE',
+				'primary-700': '#261FA0',
+				'primary-800': '#1D187C',
+				'primary-900': '#16125F',
 
 				// 'ligth yellow'
-        'secondary-50': '#FFFEEC',
-        'secondary-100': '#FFFCC4',
-        'secondary-200': '#FFFCC4',
-        'secondary-300': '#FFF87F',
-        'secondary-400': '#FFF766',
-        'secondary-500': '#FFF540',
-        'secondary-600': '#E8DF3A',
-        'secondary-700': '#B5AE2D',
-        'secondary-800': '#8C8723',
-        'secondary-900': '#8C8723',
+				'secondary-50': '#FFFEEC',
+				'secondary-100': '#FFFCC4',
+				'secondary-200': '#FFFCC4',
+				'secondary-300': '#FFF87F',
+				'secondary-400': '#FFF766',
+				'secondary-500': '#FFF540',
+				'secondary-600': '#E8DF3A',
+				'secondary-700': '#B5AE2D',
+				'secondary-800': '#8C8723',
+				'secondary-900': '#8C8723',
 
 				// 'pastel blue'
 				'tertiary-50': '#F5F9FF',
@@ -92,7 +110,7 @@ export default {
 				'yellow-700': '#B57B09',
 				'yellow-800': '#8C5F07',
 				'yellow-900': '#6B4905',
-				
+
 				// 'error'
 				'red-50': '#FFEBEB',
 				'red-100': '#FFBFC1',
@@ -118,9 +136,9 @@ export default {
 				'text-900': '#020109',
 
 				// 'basics'
-				'background':'#FBFBFE',
-				'white':'#FFFFFF'
-      },
+				background: '#FBFBFE',
+				white: '#FFFFFF',
+			},
 		},
 	},
 	plugins: [],
