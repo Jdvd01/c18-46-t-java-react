@@ -1,6 +1,6 @@
-package com.booklyn.Backend.Repository;
+package com.booklyn.Backend.Repository.Book;
 
-import com.booklyn.Backend.Models.Book;
+import com.booklyn.Backend.Models.Book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,21 +1,28 @@
 package com.booklyn.Backend.Controllers;
 
-import com.booklyn.Backend.Services.BookService;
+import com.booklyn.Backend.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/books")
-public class BookController {
-
+@RequestMapping("/api/v1/users")
+public class UserController {
     @Autowired
-    private BookService bookService;
+    private UserService userService;
 
     // =====================================================================
     //                              GET
     // =====================================================================
 
+    /*PRUEBA*/
+    @GetMapping("/prueba")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String prueba(){
+        return "endpoint protegido";
+    }
 
     // =====================================================================
     //                              POST
@@ -35,6 +42,4 @@ public class BookController {
     // =====================================================================
     //                              DELETE
     // =====================================================================
-
-
 }

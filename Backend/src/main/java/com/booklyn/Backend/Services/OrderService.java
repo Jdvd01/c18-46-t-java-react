@@ -1,4 +1,4 @@
 package com.booklyn.Backend.Services;
 
-public interface BookService {
+public interface OrderService {
 }
