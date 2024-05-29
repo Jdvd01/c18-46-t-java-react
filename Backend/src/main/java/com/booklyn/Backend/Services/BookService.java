@@ -19,7 +19,7 @@ public interface BookService {
     BookDTO getBookById(Long id);
 
     void deleteBookById(Long id);
-    //buesqueda por conditions
+    //buesqueda por conditions de libros
     Page<BookDTO> findBooksByCriteria(String title, String author, String genre, Pageable pageable);
 
 }
