@@ -5,7 +5,7 @@ import { ErrorPage } from './404'
 function App() {
 	return (
 		// Delimitaciones del grid 👇🏽
-		<div className="mx-8 desktop:mx-40">
+		<div className="mx-4 tablet:mx-8 desktop:mx-40">
 			<Routes>
 				<Route path="/" element={<Example />} />
 				{/* 
