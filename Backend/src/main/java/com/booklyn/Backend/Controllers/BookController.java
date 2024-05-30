@@ -73,9 +73,11 @@ public class BookController {
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String author,
             @RequestParam(required = false) String genre,
+            @RequestParam(required = false) String isbn,
+
             Pageable pageable
     ) {
-        Page<BookDTO> books = bookService.findBooksByCriteria(title, author, genre, pageable);
+        Page<BookDTO> books = bookService.findBooksByCriteria(title, author, genre, isbn, pageable);
 
         return new ResponseEntity<>(SuccesResponse
                 .builder()
@@ -86,6 +88,20 @@ public class BookController {
                 .build(), HttpStatus.CREATED);
     }
 
+    @GetMapping("/searchByPrice")
+    public ResponseEntity<SuccesResponse> findBooksByPrice(
+            @RequestParam(required = false) Float minPrice,
+            @RequestParam(required = false) Float maxPrice,
+            Pageable pageable) {
+        Page<BookDTO> books = bookService.findBooksByRangePrice(minPrice, maxPrice, pageable);
+        return new ResponseEntity<>(SuccesResponse
+                .builder()
+                .statusCode("200")
+                .message("Book found")
+                .object(books.getContent())
+                .url(url + "searchByprice")
+                .build(), HttpStatus.CREATED);
+    }
     // =====================================================================
     //                              POST
     // =====================================================================

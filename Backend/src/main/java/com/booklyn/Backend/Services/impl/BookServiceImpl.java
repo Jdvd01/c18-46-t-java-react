@@ -77,14 +77,26 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Page<BookDTO> findBooksByCriteria(String title, String author, String genre, Pageable pageable) {
+    public Page<BookDTO> findBooksByCriteria(String title, String author, String genre, String isbn, Pageable pageable) {
         Specification<Book> specification = Specification
                 .where(BookSpecification.hasTitle(title))
                 .and(BookSpecification.hasAuthor(author))
-                .and(BookSpecification.hasCategory(genre));
-        Page<Book> books =  bookRepository.findAll(specification, pageable);
+                .and(BookSpecification.hasCategory(genre))
+                .and(BookSpecification.hasISBN(isbn));
+        Page<Book> books = bookRepository.findAll(specification, pageable);
         if (books.isEmpty()) {
             throw new ResourceNotFoundException("No books found with the given criteria");
+        }
+        return books.map(this::convertToDTO);
+    }
+
+    @Override
+    public Page<BookDTO> findBooksByRangePrice(Float minPrice, Float maxPrice, Pageable pageable) {
+        Specification<Book> specification = Specification
+                .where(BookSpecification.hasPriceBetween(minPrice, maxPrice));
+        Page<Book> books = bookRepository.findAll(specification, pageable);
+        if (books.isEmpty()) {
+            throw new ResourceNotFoundException("No books found whith the criteria");
         }
         return books.map(this::convertToDTO);
     }
