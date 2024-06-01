@@ -10,6 +10,8 @@ const getPosts = async (data) => {
 	return results
 }
 
+console.log(import.meta.env.VITE_BACKEND_URL)
+
 const exampleService = {
 	getPosts,
 }

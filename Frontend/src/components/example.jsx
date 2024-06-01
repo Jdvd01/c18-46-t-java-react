@@ -38,7 +38,7 @@ const Example = () => {
 	console.log({ myExampleKey: myExampleKey })
 
 	return (
-		<div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow my-10">
+		<div className="w-full min-h-screen flex flex-col justify-center items-center bg-white rounded-lg">
 			<h1 className="text-2xl font-medium mb-5">Mi contador {value}</h1>
 
 			<div className="inline-flex items-center rounded-md shadow-sm">
