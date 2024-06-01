@@ -3,12 +3,10 @@ package com.booklyn.Backend.Models.Book;
 import com.booklyn.Backend.Models.User.Inventory;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -26,10 +24,11 @@ public class Book {
     private String synopsis;
     private Integer pages;
     private String language;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "category_id")
-    @JsonBackReference
-    private Category category;
+    @JsonBackReference*/
+    @Enumerated(EnumType.STRING)
+    private ECategory category;
     @ManyToOne
     @JoinColumn(name = "inventory_id")
     @JsonBackReference

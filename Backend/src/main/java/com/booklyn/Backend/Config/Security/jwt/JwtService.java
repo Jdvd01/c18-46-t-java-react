@@ -1,5 +1,6 @@
 package com.booklyn.Backend.Config.Security.jwt;
 
+import com.booklyn.Backend.Models.User.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -25,6 +26,7 @@ public class JwtService {
     public String getToken(UserDetails user, Collection<? extends GrantedAuthority> authorities) {
         Map<String, Object> claims = new HashMap<>();
         claims.put("roles", authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()));
+        claims.put("userId", ((User) user).getId());
         return getToken(claims, user);
     }
 
@@ -34,7 +36,7 @@ public class JwtService {
                 .claims(extraClaims)
                 .subject(user.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis()+1000*20))
+                .expiration(new Date(System.currentTimeMillis()+1000*60*60*48))
                 .signWith(getKey())
                 .compact();
     }
@@ -46,6 +48,10 @@ public class JwtService {
 
     public String getUsernameFromToken(String token) {
         return getClaim(token, Claims::getSubject);
+    }
+
+    public Long getIdFromToken(String token) {
+        return getClaim(token, claims -> Long.parseLong(claims.get("userId").toString()));
     }
 
     private <T> T getClaim(String token, Function<Claims, T> claimsResolver) {

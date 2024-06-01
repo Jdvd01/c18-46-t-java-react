@@ -1,6 +1,6 @@
 package com.booklyn.Backend.Exceptions;
 
-import com.booklyn.Backend.DTO.ErrorResponse;
+import com.booklyn.Backend.DTO.Responses.ErrorResponse;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
@@ -39,7 +39,17 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
     /*==========================================   RESOURCE NOT FOUND   ==========================================*/
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handlerResourceNotFoundException(ResourceNotFoundException ex, WebRequest webRequest){
+        ErrorResponse errorResponse = ErrorResponse
+                .builder()
+                .dateTime(LocalDateTime.now())
+                .message(ex.getMessage())
+                .url(webRequest.getDescription(false).replace("uri=", ""))
+                .build();
 
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
 
 
     /*==========================================   EXPIRED JWT  ==========================================*/

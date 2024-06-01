@@ -1,9 +1,15 @@
 package com.booklyn.Backend.Services.impl;
 
 import com.booklyn.Backend.DTO.BookDTO;
+import com.booklyn.Backend.DTO.Requests.BookRequest;
+import com.booklyn.Backend.Exceptions.ResourceAlreadyExistException;
 import com.booklyn.Backend.Exceptions.ResourceNotFoundException;
 import com.booklyn.Backend.Models.Book.Book;
+import com.booklyn.Backend.Models.Book.Category;
+import com.booklyn.Backend.Models.Book.ECategory;
+import com.booklyn.Backend.Models.User.User;
 import com.booklyn.Backend.Repository.Book.BookRepository;
+import com.booklyn.Backend.Repository.User.UserRepository;
 import com.booklyn.Backend.Services.BookService;
 import com.booklyn.Backend.Specification.BookSpecification;
 import jakarta.persistence.EntityManager;
@@ -12,6 +18,7 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -22,6 +29,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,10 +38,59 @@ public class BookServiceImpl implements BookService {
     BookRepository bookRepository;
     @PersistenceContext
     private EntityManager entityManager;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public Book saveBook(Book book) {
         return bookRepository.save(book);
+    }
+
+    @Override
+    public BookDTO createBook(Long userId, BookRequest request) throws BadRequestException {
+
+        if(bookRepository.existsByISBN(request.getISBN())) throw new ResourceAlreadyExistException("ISBN already exists.");
+        if(request.getPrice()<1) throw new BadRequestException("Price cannot be less than 1.");
+        if(request.getStock()<1) throw new BadRequestException("Stock cannot be less than 1.");
+        if(request.getPages()<1) throw new BadRequestException("Pages cannot be less than 1.");
+
+        /*Optional<Category> cat= categoryRepository.findByTitle(request.getCategory());
+        if(cat.isEmpty()) throw new ResourceNotFoundException("Category " + request.getCategory() + " doesn't exists.");
+        Category category = cat.get();*/
+
+        /*// ------------ provisional ---------------
+        Category category = categoryRepository.save( Category
+                .builder()
+                .title(request.getCategory())
+                .books(new HashSet<>())
+                .build());
+        // ------------ provisional ---------------
+*/
+        Optional<User> us = userRepository.findById(userId);
+        if(us.isEmpty()) throw new ResourceNotFoundException("User with email: " + userId + " doesn't exists");
+        User user = us.get();
+
+        Book book = this.bookRepository.save(Book
+                .builder()
+                .title(request.getTitle())
+                .author(request.getAuthor())
+                .pages(request.getPages())
+                .price(request.getPrice())
+                .stock(request.getStock())
+                .synopsis(request.getSynopsis())
+                .ISBN(request.getISBN())
+                .language(request.getLanguage())
+                .category(ECategory.valueOf(request.getCategory()))
+                .inventory(user.getInventory())
+                .build());
+
+        user.getInventory().getBook().add(book);
+        userRepository.save(user);
+
+        /*category.getBooks().add(book);
+        categoryRepository.save(category);*/
+
+        return this.convertToDTO(book);
     }
 
     @Override
@@ -112,7 +169,7 @@ public class BookServiceImpl implements BookService {
                 .synopsis(book.getSynopsis())
                 .pages(book.getPages())
                 .language(book.getLanguage())
-                .category(book.getCategory().getTitle())
+                .category(book.getCategory().toString())
                 .build();
     }
 

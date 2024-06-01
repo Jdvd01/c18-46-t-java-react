@@ -1,4 +1,4 @@
-package com.booklyn.Backend.DTO;
+package com.booklyn.Backend.DTO.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

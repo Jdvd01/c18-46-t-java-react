@@ -1,14 +1,23 @@
 package com.booklyn.Backend.Controllers;
 
+import com.booklyn.Backend.Config.Security.SecurityConfig;
+import com.booklyn.Backend.Config.Security.Services.SecurityService;
 import com.booklyn.Backend.DTO.BookDTO;
+import com.booklyn.Backend.DTO.Requests.BookRequest;
 import com.booklyn.Backend.DTO.Responses.SuccesResponse;
 import com.booklyn.Backend.Models.Book.Book;
 import com.booklyn.Backend.Services.BookService;
+import com.booklyn.Backend.Utils.Utils;
+import jakarta.servlet.http.HttpServletRequest;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +29,8 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+    @Autowired
+    private Utils utils;
 
     // =====================================================================
     //                              GET
@@ -105,7 +116,22 @@ public class BookController {
     // =====================================================================
     //                              POST
     // =====================================================================
+    @PostMapping()
+    @PreAuthorize("hasAnyAuthority('ADMIN','CUSTOMER')")
+    public ResponseEntity<SuccesResponse> createBook(@RequestBody BookRequest request, HttpServletRequest httpRequest) throws BadRequestException, BadRequestException {
+        String token = utils.getTokenFromRequest(httpRequest);
+        Long userId = this.utils.getCurrentUserId(token);
+        BookDTO bookDTO = this.bookService.createBook(userId, request);
 
+        return new ResponseEntity<>(SuccesResponse
+                .builder()
+                .statusCode("201")
+                .message("Book created")
+                .object(bookDTO)
+                .url(url)
+                .build(), HttpStatus.CREATED);
+
+    }
 
     // =====================================================================
     //                              PUT
