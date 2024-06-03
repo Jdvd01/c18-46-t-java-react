@@ -1,7 +1,9 @@
 package com.booklyn.Backend.Services;
 
 import com.booklyn.Backend.DTO.BookDTO;
+import com.booklyn.Backend.DTO.Requests.BookRequest;
 import com.booklyn.Backend.Models.Book.Book;
+import org.apache.coyote.BadRequestException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -24,4 +26,5 @@ public interface BookService {
     Page<BookDTO> findBooksByCriteria(String title, String author, String genre, String isbn, Pageable pageable);
 
     Page<BookDTO> findBooksByRangePrice(Float minPrice, Float maxPrice, Pageable pageable);
+    BookDTO createBook(Long id, BookRequest request) throws BadRequestException;
 }

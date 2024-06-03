@@ -26,4 +26,6 @@ public class RegisterRequest {
 
     @NotBlank(message = "Please enter your last name")
     private String lastName;
+    @NotBlank(message = "Please enter your user role")
+    private String role;
 }

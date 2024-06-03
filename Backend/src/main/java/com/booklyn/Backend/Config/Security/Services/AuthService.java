@@ -79,7 +79,7 @@ public class AuthService {
         User user = userRepository.save(User.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .role(ERole.CUSTOMER)
+                .role(ERole.valueOf(request.getRole()))
                 .userInfo(userInfo)
                 .inventory(inventory)
                 .cart(cart)

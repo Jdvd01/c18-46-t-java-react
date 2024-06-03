@@ -1,6 +1,6 @@
 package com.booklyn.Backend.Config.Security.jwt;
 
-import com.booklyn.Backend.DTO.ErrorResponse;
+import com.booklyn.Backend.DTO.Responses.ErrorResponse;
 import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
