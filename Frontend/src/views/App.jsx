@@ -1,13 +1,17 @@
 import Example from '../components/example'
 import { Routes, Route } from 'react-router-dom'
-import { ErrorPage } from './404'
+
+// Views
+import { ErrorPage } from './404.jsx'
+import { AuthView } from './AuthView.jsx'
 
 function App() {
 	return (
 		// Delimitaciones del grid 👇🏽
-		<div className="mx-4 tablet:mx-8 desktop:mx-40">
+		<div className="px-4 tablet:px-8 desktop:px-40 bg-background">
 			<Routes>
 				<Route path="/" element={<Example />} />
+				<Route path="/auth" element={<AuthView />} />
 				{/* 
 				Agregar mas rutas aqui...
 					Ejemplo
