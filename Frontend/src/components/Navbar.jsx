@@ -14,7 +14,7 @@ export const Navbar = () => {
 	const token = false
 
 	return (
-		<div className="bg-primary-500 text-white flex justify-between items-center flex-wrap tablet:flex-nowrap py-[26px] px-4 tablet:px-8 fixed top-0 min-w-full">
+		<div className="bg-primary-500 text-white flex justify-between items-center flex-wrap tablet:flex-nowrap py-[26px] px-4 tablet:px-8 fixed top-0 min-w-full z-50">
 			<Link to={'/'}>
 				<img src="" alt="Logo" />
 			</Link>
@@ -45,14 +45,14 @@ export const Navbar = () => {
 					</li>
 					<li>
 						{token ? (
-							<Link to={'/placeholder'} className="flex gap-2 items-center">
+							<Link to={'/'} className="flex gap-2 items-center">
 								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 								<span className="font-inter text-body-1 tablet:hidden desktop:block">
 									Log out
 								</span>
 							</Link>
 						) : (
-							<Link to={'/placeholder'} className="flex gap-2 items-center">
+							<Link to={'/auth'} className="flex gap-2 items-center">
 								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 								<span className="font-inter text-body-1 tablet:hidden desktop:block">
 									Log in
