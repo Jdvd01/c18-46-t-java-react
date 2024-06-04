@@ -14,7 +14,7 @@ export const Navbar = () => {
 	const token = false
 
 	return (
-		<div className="bg-primary-500 text-white flex justify-between items-center flex-wrap tablet:flex-nowrap py-[26px] px-4 tablet:px-8 fixed top-0 min-w-full z-50">
+		<div className="bg-primary-500 text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50">
 			<Link to={'/'}>
 				<img src="" alt="Logo" />
 			</Link>
