@@ -62,12 +62,11 @@ export const Login = () => {
   useEffect(() => {
     if (!message) return;
     const timeoutID = setTimeout(() => {
-      console.log("settimeout");
-      //dispatch(partialReset());// reestablecer isError, isSuccess, message
+      
       dispatchPartialReset();
     }, 3000);
     return () => {
-      console.log("clear timeout");
+      
       clearTimeout(timeoutID);
     };
   }, [message, dispatchPartialReset]);
@@ -83,7 +82,7 @@ export const Login = () => {
 
     if (!emailValid || !passwordValid) return;
 
-    console.log(`login => email:${email} | password:${password}`);
+    
     dispatchLogin(email, password);
   };
 	// utils
@@ -101,7 +100,7 @@ export const Login = () => {
         <p className="text-green-600 p-5 bg-green-100">Login success!!!</p>
       )}
       {isLoading && (
-        <p className="text-secondary-500 p-5 bg-secondary-500">Loading...</p>
+        <p className="text-secondary-800 p-5 bg-secondary-100">Loading...</p>
       )}
       <p className="text-body-1 font-inter py-6">Log in to your account</p>
       <div className="flex flex-col gap-8">
@@ -127,7 +126,7 @@ export const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           isInvalid={invalidPassword}
-          invalidMessage="Please enter a password with 6 or more characters"
+          invalidMessage="Please enter a password with a minimum of 8 characters and a maximum of 20 characters."
         />
 
         <div className="flex justify-between text-body-3 font-inter">
