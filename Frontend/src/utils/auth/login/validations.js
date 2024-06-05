@@ -6,6 +6,6 @@ const isValidEmail = (email) => {
 
 // Función para validar la longitud de la contraseña
 const isValidPassword = (password) => {
-  return password.length >= 6;
+  return password.length >= 8 && password.length <= 20;
 };
 export default { isValidEmail, isValidPassword };
