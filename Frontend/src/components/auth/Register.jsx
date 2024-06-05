@@ -69,12 +69,10 @@ export const Register = () => {
   useEffect(() => {
     if (!message) return;
     const timeoutID = setTimeout(() => {
-      console.log("settimeout");
-      //dispatch(partialReset());// reestablecer isError, isSuccess, message
+      
       dispatchPartialReset();
     }, 3000);
     return () => {
-      console.log("clear timeout");
       clearTimeout(timeoutID);
     };
   }, [message, dispatchPartialReset]);
@@ -139,7 +137,7 @@ export const Register = () => {
           onChange={(e) => setName(e.target.value)}
           value={name}
           isInvalid={invalidName}
-          invalidMessage="Please enter a valid email name"
+          invalidMessage="Please enter your name"
         />
         <Field
           htmlFor={"lastname"}
@@ -149,7 +147,7 @@ export const Register = () => {
           onChange={(e) => setLastName(e.target.value)}
           value={lastName}
           isInvalid={invalidLastName}
-          invalidMessage="Please enter a valid last name"
+          invalidMessage="Please enter your last name"
         />
         <div className="flex flex-col gap-2">
           <label htmlFor="select">Choose one</label>
@@ -166,10 +164,10 @@ export const Register = () => {
                 I want to ...
               </option>
               <option className="w-full" value="CUSTOMER">
-                CUSTOMER
+                buy books
               </option>
               <option className="w-full" value="SALESMAN">
-                SALESMAN
+                sell books
               </option>
             </select>
             <span className="absolute right-[10px]">
@@ -180,6 +178,11 @@ export const Register = () => {
               />
             </span>
           </div>
+          {invalidUserRole && (
+            <p className="text-red-500 text-body-3 font-inter desktop:w-[398]">
+              Please select a role
+            </p>
+          )}
         </div>
         <Field
           htmlFor={"email"}
