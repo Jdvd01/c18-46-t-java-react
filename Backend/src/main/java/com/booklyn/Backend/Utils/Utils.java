@@ -22,7 +22,6 @@ public class Utils {
         return null;
     }
 
-
     public Long getCurrentUserId(String token) {
         if(token == null || token.isEmpty()) throw new ResourceNotFoundException("Invalid token");
         return jwtService.getIdFromToken(token);
