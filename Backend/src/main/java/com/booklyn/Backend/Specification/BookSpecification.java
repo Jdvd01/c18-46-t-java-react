@@ -17,7 +17,7 @@ public class BookSpecification {
     public static Specification<Book> hasCategory(String categoryName) {
         return (root, query, criteriaBuilder) -> {
             if (categoryName == null) return null;
-            return criteriaBuilder.like(criteriaBuilder.lower(root.get("category").get("title")), "%" + categoryName.toLowerCase() + "%");
+            return criteriaBuilder.like(criteriaBuilder.lower(root.get("category")), "%" + categoryName.toLowerCase() + "%");
         };
     }
 

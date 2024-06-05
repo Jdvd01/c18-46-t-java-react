@@ -80,6 +80,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Page<BookDTO> getAllBooksPageable(int page, int size) {
         Page<Book> books = bookRepository.findAll(PageRequest.of(page, size));
+
         if (books.isEmpty()) {
             throw new ResourceNotFoundException("Books not found");
         }
