@@ -5,9 +5,17 @@ import { EyeSVG } from "../../assets/svg/EyeSVG";
 import { useState } from "react";
 import { ExpandMoreSVG } from "../../assets/svg/ExpandMoreSVG";
 
+import { useEffect } from "react";
+
 // utils
+import validation from "../../utils/auth/register/validations";
+import useAuth from "../../hooks/useAuth";
+
+// React Router
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
+  // input hooks
   const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -15,8 +23,110 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [userRole, setUserRole] = useState("");
 
+  // validation hooks
+  const [invalidName, setInvalidName] = useState(false);
+  const [invalidLastName, setInvalidLastName] = useState(false);
+  const [invalidEmail, setInvalidEmail] = useState(false);
+  const [invalidPassword, setInvalidPassword] = useState(false);
+  const [invalidUserRole, setInvalidUserRole] = useState(false);
+
+  // react router hooks
+  const navigate = useNavigate();
+
+  // Redux state/dispatchers
+  const {
+    isError,
+    isSuccess,
+    isLoading,
+    message,
+    token,
+    dispatchPartialReset,
+    dispatchSetAuthDataFromLocalStorage,
+    dispatchRegister,
+  } = useAuth();
+
+  // useEffects
+  // manejar redireccion cuando haya token
+  useEffect(() => {
+    // si hay datos de sesion en local, entonces van a state.auth
+    //dispatch(setAuthDataFromLocalStorage());
+    dispatchSetAuthDataFromLocalStorage();
+    if (!token) return;
+    clearFields();
+    const timeoutID = setTimeout(() => {
+      //dispatch(partialReset());
+      dispatchPartialReset();
+      navigate("/");
+    }, 2000);
+    return () => clearTimeout(timeoutID);
+  }, [
+    token,
+    navigate,
+    dispatchPartialReset,
+    dispatchSetAuthDataFromLocalStorage,
+  ]);
+  // credenciales incorrectas
+  useEffect(() => {
+    if (!message) return;
+    const timeoutID = setTimeout(() => {
+      console.log("settimeout");
+      //dispatch(partialReset());// reestablecer isError, isSuccess, message
+      dispatchPartialReset();
+    }, 3000);
+    return () => {
+      console.log("clear timeout");
+      clearTimeout(timeoutID);
+    };
+  }, [message, dispatchPartialReset]);
+
+  //handlers
+  const handleRegistration = (name, lastName, email, password, userRole) => {
+    // Validations
+    const nameValid = validation.isValidName(name);
+    const lastNameValid = validation.isValidLastName(lastName);
+    const emailValid = validation.isValidEmail(email);
+    const passwordValid = validation.isValidPassword(password);
+    const userRoleValid = validation.isValidRole(userRole);
+
+    setInvalidName(!nameValid);
+    setInvalidLastName(!lastNameValid);
+    setInvalidEmail(!emailValid);
+    setInvalidPassword(!passwordValid);
+    setInvalidUserRole(!userRoleValid);
+
+    if (
+      !nameValid ||
+      !lastNameValid ||
+      !emailValid ||
+      !passwordValid ||
+      !userRoleValid
+    )
+      return;
+
+    dispatchRegister(email, password, name, lastName, userRole);
+  };
+
+  //utils
+  const clearFields = () => {
+    setName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+    setUserRole("");
+  };
   return (
     <>
+      {isError && (
+        <p className="text-red-600 p-5 bg-red-100">Error: {message}</p>
+      )}
+      {isSuccess && (
+        <p className="text-green-600 p-5 bg-green-100">
+          Successful registration!!!
+        </p>
+      )}
+      {isLoading && (
+        <p className="text-secondary-800 p-5 bg-secondary-100">Loading...</p>
+      )}
       <p className="text-body-1 font-inter py-6">
         Register and get your favorite books
       </p>
@@ -28,6 +138,8 @@ export const Register = () => {
           placeholder={"Enter your name"}
           onChange={(e) => setName(e.target.value)}
           value={name}
+          isInvalid={invalidName}
+          invalidMessage="Please enter a valid email name"
         />
         <Field
           htmlFor={"lastname"}
@@ -36,13 +148,17 @@ export const Register = () => {
           placeholder={"Enter your last name"}
           onChange={(e) => setLastName(e.target.value)}
           value={lastName}
+          isInvalid={invalidLastName}
+          invalidMessage="Please enter a valid last name"
         />
         <div className="flex flex-col gap-2">
           <label htmlFor="select">Choose one</label>
           <div className="flex flex-col justify-center relative">
             <select
               id="select"
-              className="border-[1px] border-text-100 rounded-lg h-[52px] px-[10px] appearance-none"
+              className={`border-[1px] ${
+                invalidUserRole ? "border-red-500" : "border-text-100"
+              } rounded-lg h-[52px] px-[10px] appearance-none`}
               value={userRole}
               onChange={(e) => setUserRole(e.target.value)}
             >
@@ -57,7 +173,11 @@ export const Register = () => {
               </option>
             </select>
             <span className="absolute right-[10px]">
-              <ExpandMoreSVG height={"24"} width={"24"} color={"#000000"} />
+              <ExpandMoreSVG
+                height={"24"}
+                width={"24"}
+                color={`${invalidUserRole ? "#FF3236" : "#000000"}`}
+              />
             </span>
           </div>
         </div>
@@ -68,6 +188,8 @@ export const Register = () => {
           placeholder={"Enter your email address"}
           onChange={(e) => setEmail(e.target.value)}
           value={email}
+          isInvalid={invalidEmail}
+          invalidMessage="Please enter a valid email address"
         />
         <Field
           htmlFor={"password"}
@@ -80,13 +202,16 @@ export const Register = () => {
           showPassword={showPassword}
           onChange={(e) => setPassword(e.target.value)}
           value={password}
+          isInvalid={invalidPassword}
+          invalidMessage="Please enter a password with 6 or more characters"
         />
 
         <button
           onClick={() =>
-            console.log(name, lastName, email, password, userRole)
+            handleRegistration(name, lastName, email, password, userRole)
           }
           className="bg-primary-500 h-14 text-white text-body-1 font-inter rounded-[4px]"
+          disabled={isLoading}
         >
           Register me now
         </button>

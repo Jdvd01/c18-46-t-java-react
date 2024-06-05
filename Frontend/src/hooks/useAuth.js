@@ -25,6 +25,7 @@ const useAuth = () => {
 
   // siempre verifica si hay sesion en local, y si la hay, la pasa al estado global
   useEffect(() => {
+    console.log('useEffect useAuth')
     dispatchSetAuthDataFromLocalStorage();
   }, []);
 

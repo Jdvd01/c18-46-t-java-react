@@ -1,3 +1,9 @@
+// Funcion para validar el nombre
+const isValidName = (name) => name.length > 0;
+
+// Funcion para validar el apellido
+const isValidLastName = (lastName) => lastName.length > 0;
+
 // Función para validar el formato del email
 const isValidEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -12,4 +18,10 @@ const isValidRole = (role) => {
   const roles = Object.freeze(["CUSTOMER", "SALESMAN"]);
   return roles.some((item) => role === item);
 };
-export default { isValidEmail, isValidPassword, isValidRole };
+export default {
+  isValidName,
+  isValidLastName,
+  isValidEmail,
+  isValidPassword,
+  isValidRole,
+};

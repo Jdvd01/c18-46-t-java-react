@@ -9,6 +9,8 @@ import validation from "../../utils/auth/login/validations";
 
 // React Router
 import { useNavigate } from "react-router-dom";
+
+// Redux auth state
 import useAuth from "../../hooks/useAuth";
 
 export const Login = () => {
@@ -96,7 +98,7 @@ export const Login = () => {
         <p className="text-red-600 p-5 bg-red-100">Error: {message}</p>
       )}
       {isSuccess && (
-        <p className="text-green-600 p-5 bg-green-100">Loging success!!!</p>
+        <p className="text-green-600 p-5 bg-green-100">Login success!!!</p>
       )}
       {isLoading && (
         <p className="text-secondary-500 p-5 bg-secondary-500">Loading...</p>
@@ -140,6 +142,7 @@ export const Login = () => {
         <button
           onClick={() => handleLogin(email, password)}
           className="bg-primary-500 h-14 text-white text-body-1 font-inter rounded-[4px]"
+          disabled={isLoading}
         >
           Log in
         </button>
