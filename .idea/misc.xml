@@ -8,6 +8,15 @@
         <option value="$PROJECT_DIR$/Backend/backend/pom.xml" />
       </list>
     </option>
+<<<<<<< HEAD
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/Backend/backend/pom.xml" />
+      </set>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+=======
+>>>>>>> 21a59818232d134be079986ef3aecb03b69f2c2f
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-21" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

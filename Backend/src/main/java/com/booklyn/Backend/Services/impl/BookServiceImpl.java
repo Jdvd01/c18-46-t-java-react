@@ -50,24 +50,10 @@ public class BookServiceImpl implements BookService {
     public BookDTO createBook(Long userId, BookRequest request) throws BadRequestException {
 
         if(bookRepository.existsByISBN(request.getISBN())) throw new ResourceAlreadyExistException("ISBN already exists.");
-        if(request.getPrice()<1) throw new BadRequestException("Price cannot be less than 1.");
-        if(request.getStock()<1) throw new BadRequestException("Stock cannot be less than 1.");
-        if(request.getPages()<1) throw new BadRequestException("Pages cannot be less than 1.");
+        if(!ECategory.contains(request.getCategory())) throw new BadRequestException(request.getCategory() + " category doesn't exists.");
 
-        /*Optional<Category> cat= categoryRepository.findByTitle(request.getCategory());
-        if(cat.isEmpty()) throw new ResourceNotFoundException("Category " + request.getCategory() + " doesn't exists.");
-        Category category = cat.get();*/
-
-        /*// ------------ provisional ---------------
-        Category category = categoryRepository.save( Category
-                .builder()
-                .title(request.getCategory())
-                .books(new HashSet<>())
-                .build());
-        // ------------ provisional ---------------
-*/
         Optional<User> us = userRepository.findById(userId);
-        if(us.isEmpty()) throw new ResourceNotFoundException("User with email: " + userId + " doesn't exists");
+        if(us.isEmpty()) throw new ResourceNotFoundException("User with id: " + userId + " doesn't exists");
         User user = us.get();
 
         Book book = this.bookRepository.save(Book
@@ -87,8 +73,6 @@ public class BookServiceImpl implements BookService {
         user.getInventory().getBook().add(book);
         userRepository.save(user);
 
-        /*category.getBooks().add(book);
-        categoryRepository.save(category);*/
 
         return this.convertToDTO(book);
     }

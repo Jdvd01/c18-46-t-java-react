@@ -6,6 +6,7 @@ import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
@@ -16,16 +17,27 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     /*==========================================   BAD REQUEST   ==========================================*/
-    @ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<ErrorResponse> handlerBadRequestException(BadRequestException ex, WebRequest webRequest){
+    @ExceptionHandler({BadRequestException.class, MethodArgumentNotValidException.class})
+    public ResponseEntity<ErrorResponse> handleBadRequestException(Exception ex, WebRequest webRequest){
+        String message;
+        if (ex instanceof BadRequestException) {
+            message = ex.getMessage();
+        } else if (ex instanceof MethodArgumentNotValidException) {
+            MethodArgumentNotValidException validationException = (MethodArgumentNotValidException) ex;
+            message = validationException.getBindingResult().getFieldError().getDefaultMessage();
+        } else {
+            message = "Bad request";
+        }
+
         ErrorResponse response = ErrorResponse
                 .builder()
                 .dateTime(LocalDateTime.now())
-                .message(ex.getMessage())
+                .message(message)
                 .url(webRequest.getDescription(false).replace("uri=", ""))
                 .build();
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
+
 
     /*==========================================   RESOURCE ALREADY EXIST   ==========================================*/
     @ExceptionHandler(ResourceAlreadyExistException.class)

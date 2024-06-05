@@ -9,6 +9,7 @@ import com.booklyn.Backend.Models.Book.Book;
 import com.booklyn.Backend.Services.BookService;
 import com.booklyn.Backend.Utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -118,7 +120,11 @@ public class BookController {
     // =====================================================================
     @PostMapping()
     @PreAuthorize("hasAnyAuthority('ADMIN','CUSTOMER')")
-    public ResponseEntity<SuccesResponse> createBook(@RequestBody BookRequest request, HttpServletRequest httpRequest) throws BadRequestException, BadRequestException {
+    public ResponseEntity<SuccesResponse> createBook(@Valid @RequestBody BookRequest request, HttpServletRequest httpRequest, BindingResult bindingResult) throws BadRequestException{
+        if(bindingResult.hasErrors()){
+            throw new BadRequestException(bindingResult.getFieldError().getDefaultMessage());
+        }
+
         String token = utils.getTokenFromRequest(httpRequest);
         Long userId = this.utils.getCurrentUserId(token);
         BookDTO bookDTO = this.bookService.createBook(userId, request);
