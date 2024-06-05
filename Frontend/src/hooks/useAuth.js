@@ -19,7 +19,7 @@ const useAuth = () => {
   const dispatchPartialReset = () => dispatch(partialReset());
   const dispatchLogin = (email, password) =>
     dispatch(logIn({ email, password }));
-  const dispacthLogout = () => dispatch(logOut());
+  const dispatchLogout = () => dispatch(logOut());
   const dispatchRegister = (email, password, firstName, lastName, role) =>
     dispatch(register({ email, password, firstName, lastName, role }));
 
@@ -36,7 +36,7 @@ const useAuth = () => {
     dispatchPartialReset,
     dispatchLogin,
     dispatchRegister,
-    dispacthLogout,
+    dispatchLogout,
     dispatchSetAuthDataFromLocalStorage,
   };
 };
