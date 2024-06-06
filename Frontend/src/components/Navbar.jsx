@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 // Assets
 import { LoginSVG } from '../assets/svg/LoginSVG.jsx'
@@ -10,11 +10,16 @@ import { HomeSVG } from '../assets/svg/HomeSVG.jsx'
 
 export const Navbar = () => {
 	const [show, setShow] = useState(false)
+	const currentLocation = useLocation()
 
 	const token = false
 
 	return (
-		<div className="bg-primary-500 text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50">
+		<div
+			className={`bg-${
+				currentLocation.pathname == '/' && !show ? 'none' : 'primary-500'
+			}  text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50`}
+		>
 			<Link to={'/'}>
 				<img src="" alt="Logo" />
 			</Link>
