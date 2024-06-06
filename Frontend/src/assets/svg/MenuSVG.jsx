@@ -1,4 +1,4 @@
-export const MenuSVG = ({ width, height, color }) => {
+export const MenuSVG = ({ width = '24', height = '24', color = '#000000' }) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
