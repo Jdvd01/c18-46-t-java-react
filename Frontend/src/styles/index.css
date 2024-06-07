@@ -14,10 +14,12 @@
 @media (width <= 430px) {
 	.slider_1 {
 		background-image: url('../assets/slider_1_mobile.png');
+		background-size: 100% 100%;
 	}
 }
 @media (width > 430px) {
 	.slider_1 {
 		background-image: url('../assets/slider_1.jpg');
+		background-size: 100% 100%;
 	}
 }
