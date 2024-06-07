@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import { ErrorPage } from './404.jsx'
 import { AuthView } from './AuthView.jsx'
 import { Home } from './Home.jsx'
+import { ExampleAuth } from '../components/ExampleAuth.jsx'
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/auth" element={<AuthView />} />
+				<Route path="/useAuth" element={<ExampleAuth />} />
 				{/* 
 				Agregar mas rutas aqui...
 					Ejemplo

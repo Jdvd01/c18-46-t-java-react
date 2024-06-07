@@ -120,7 +120,7 @@ public class BookController {
     // =====================================================================
     @PostMapping()
     @PreAuthorize("hasAnyAuthority('ADMIN','CUSTOMER')")
-    public ResponseEntity<SuccesResponse> createBook(@Valid @RequestBody BookRequest request, HttpServletRequest httpRequest, BindingResult bindingResult) throws BadRequestException, BadRequestException {
+    public ResponseEntity<SuccesResponse> createBook(@Valid @RequestBody BookRequest request, HttpServletRequest httpRequest, BindingResult bindingResult) throws BadRequestException{
         if(bindingResult.hasErrors()){
             throw new BadRequestException(bindingResult.getFieldError().getDefaultMessage());
         }

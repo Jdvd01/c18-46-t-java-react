@@ -8,6 +8,8 @@ import { MenuSVG } from '../assets/svg/MenuSVG.jsx'
 import { CartSVG } from '../assets/svg/CartSVG.jsx'
 import { HomeSVG } from '../assets/svg/HomeSVG.jsx'
 
+import useAuth from '../hooks/useAuth.js'
+
 export const Navbar = () => {
 	const [show, setShow] = useState(false)
 	const [direction, setDirection] = useState('up')
@@ -30,15 +32,15 @@ export const Navbar = () => {
 		}
 	}, [])
 
-	const token = false
+	const { token, dispatchLogout } = useAuth()
 
 	return (
 		<div
-			className={`bg-${
+			className={`${
 				currentLocation.pathname == '/' && !show && direction == 'up'
-					? 'none'
-					: 'primary-500'
-			}  text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50`}
+					? 'bg-none'
+					: 'bg-primary-500'
+			} text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50`}
 		>
 			<Link to={'/'}>
 				<img src="" alt="Logo" />
@@ -80,7 +82,11 @@ export const Navbar = () => {
 						}`}
 					>
 						{token ? (
-							<Link to={'/'} className="flex gap-2 items-center">
+							<Link
+								onClick={() => dispatchLogout()}
+								to={'/'}
+								className="flex gap-2 items-center"
+							>
 								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 								<span className="font-inter text-body-1 tablet:hidden desktop:block">
 									Log out
