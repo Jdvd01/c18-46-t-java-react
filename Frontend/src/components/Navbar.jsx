@@ -57,7 +57,9 @@ export const Navbar = () => {
 			>
 				<ul className={`${show ? 'block' : 'hidden'} tablet:flex gap-8`}>
 					<li
-						className={`${isCurrentTab('/') ? 'border-b-2 border-white' : ''}`}
+						className={`${
+							isCurrentTab('/') ? 'border-b-2 border-white' : ''
+						} w-min`}
 					>
 						<Link to={'/'} className="flex gap-2 items-center">
 							<HomeSVG height={'24'} width={'24'} color={'#FFFFFF'} />
@@ -69,7 +71,7 @@ export const Navbar = () => {
 					<li
 						className={`${
 							isCurrentTab('/cart') ? 'border-b-2 border-white' : ''
-						}`}
+						} w-min`}
 					>
 						<Link to={'/cart'} className="flex gap-2 items-center">
 							<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
@@ -84,7 +86,7 @@ export const Navbar = () => {
 							<li
 								className={`${
 									isCurrentTab('/dashboard') ? 'border-b-2 border-white' : ''
-								}`}
+								} w-min`}
 							>
 								<Link to={'/dashboard'} className="flex gap-2 items-center">
 									<DashboardSVG height={'24'} width={'24'} color={'#FFFFFF'} />
@@ -122,7 +124,7 @@ export const Navbar = () => {
 						<li
 							className={`${
 								isCurrentTab('/auth') ? 'border-b-2 border-white' : ''
-							}`}
+							} `}
 						>
 							<Link to={'/auth'} className="flex gap-2 items-center">
 								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
