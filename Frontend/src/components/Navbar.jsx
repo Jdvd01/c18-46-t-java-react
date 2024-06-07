@@ -10,9 +10,10 @@ import { HomeSVG } from '../assets/svg/HomeSVG.jsx'
 
 export const Navbar = () => {
 	const [show, setShow] = useState(false)
+	const [direction, setDirection] = useState('up')
 	const currentLocation = useLocation()
 
-	const [direction, setDirection] = useState('up')
+	const isCurrentTab = (currentTab) => currentLocation.pathname == currentTab
 
 	const controlDirection = () => {
 		if (window.scrollY > 0) {
@@ -51,7 +52,9 @@ export const Navbar = () => {
 				} tablet:flex w-full justify-start tablet:justify-end gap-2 pt-2`}
 			>
 				<ul className={`${show ? 'block' : 'hidden'} tablet:flex gap-8`}>
-					<li>
+					<li
+						className={`${isCurrentTab('/') ? 'border-b-2 border-white' : ''}`}
+					>
 						<Link to={'/'} className="flex gap-2 items-center">
 							<HomeSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 							<span className="font-inter text-body-1 tablet:hidden desktop:block">
@@ -59,7 +62,11 @@ export const Navbar = () => {
 							</span>
 						</Link>
 					</li>
-					<li>
+					<li
+						className={`${
+							isCurrentTab('/placeholder') ? 'border-b-2 border-white' : ''
+						}`}
+					>
 						<Link to={'/placeholder'} className="flex gap-2 items-center">
 							<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 							<span className="font-inter text-body-1 tablet:hidden desktop:block">
@@ -67,7 +74,11 @@ export const Navbar = () => {
 							</span>
 						</Link>
 					</li>
-					<li>
+					<li
+						className={`${
+							isCurrentTab('/auth') ? 'border-b-2 border-white' : ''
+						}`}
+					>
 						{token ? (
 							<Link to={'/'} className="flex gap-2 items-center">
 								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
