@@ -23,3 +23,26 @@
 		background-size: 100% 100%;
 	}
 }
+
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	border-radius: 40px;
+	background-color: transparent;
+	opacity: #fbfbfe;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+	border-radius: 40px;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background: #b3b3b3;
+	box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb:active {
+	background-color: #999999;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 40px;
+}
