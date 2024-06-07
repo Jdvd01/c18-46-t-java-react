@@ -7,6 +7,8 @@ import { LoginSVG } from '../assets/svg/LoginSVG.jsx'
 import { MenuSVG } from '../assets/svg/MenuSVG.jsx'
 import { CartSVG } from '../assets/svg/CartSVG.jsx'
 import { HomeSVG } from '../assets/svg/HomeSVG.jsx'
+import { BookSVG } from '../assets/svg/BookSVG.jsx'
+import { DashboardSVG } from '../assets/svg/DashboardSVG.jsx'
 
 import useAuth from '../hooks/useAuth.js'
 
@@ -66,41 +68,70 @@ export const Navbar = () => {
 					</li>
 					<li
 						className={`${
-							isCurrentTab('/placeholder') ? 'border-b-2 border-white' : ''
+							isCurrentTab('/cart') ? 'border-b-2 border-white' : ''
 						}`}
 					>
-						<Link to={'/placeholder'} className="flex gap-2 items-center">
+						<Link to={'/cart'} className="flex gap-2 items-center">
 							<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 							<span className="font-inter text-body-1 tablet:hidden desktop:block">
 								Cart
 							</span>
 						</Link>
 					</li>
-					<li
-						className={`${
-							isCurrentTab('/auth') ? 'border-b-2 border-white' : ''
-						}`}
-					>
-						{token ? (
-							<Link
-								onClick={() => dispatchLogout()}
-								to={'/'}
-								className="flex gap-2 items-center"
+
+					{token ? (
+						<>
+							<li
+								className={`${
+									isCurrentTab('/dashboard') ? 'border-b-2 border-white' : ''
+								}`}
 							>
-								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
-								<span className="font-inter text-body-1 tablet:hidden desktop:block">
-									Log out
-								</span>
-							</Link>
-						) : (
+								<Link to={'/dashboard'} className="flex gap-2 items-center">
+									<DashboardSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+									<span className="font-inter text-body-1 tablet:hidden desktop:block">
+										Panel
+									</span>
+								</Link>
+							</li>
+							<li
+								className={`${
+									isCurrentTab('/books') ? 'border-b-2 border-white' : ''
+								}`}
+							>
+								<Link to={'/books'} className="flex gap-2 items-center">
+									<BookSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+									<span className="font-inter text-body-1 tablet:hidden desktop:block">
+										My books
+									</span>
+								</Link>
+							</li>
+							<li>
+								<Link
+									onClick={() => dispatchLogout()}
+									to={'/'}
+									className="flex gap-2 items-center"
+								>
+									<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+									<span className="font-inter text-body-1 tablet:hidden desktop:block">
+										Log out
+									</span>
+								</Link>
+							</li>
+						</>
+					) : (
+						<li
+							className={`${
+								isCurrentTab('/auth') ? 'border-b-2 border-white' : ''
+							}`}
+						>
 							<Link to={'/auth'} className="flex gap-2 items-center">
 								<LoginSVG height={'24'} width={'24'} color={'#FFFFFF'} />
 								<span className="font-inter text-body-1 tablet:hidden desktop:block">
 									Log in
 								</span>
 							</Link>
-						)}
-					</li>
+						</li>
+					)}
 				</ul>
 			</div>
 		</div>
