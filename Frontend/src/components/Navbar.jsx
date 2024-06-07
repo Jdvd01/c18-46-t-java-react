@@ -12,12 +12,31 @@ export const Navbar = () => {
 	const [show, setShow] = useState(false)
 	const currentLocation = useLocation()
 
+	const [direction, setDirection] = useState('up')
+
+	const controlDirection = () => {
+		if (window.scrollY > 0) {
+			setDirection('down')
+		} else {
+			setDirection('up')
+		}
+	}
+
+	useEffect(() => {
+		window.addEventListener('scroll', controlDirection)
+		return () => {
+			window.removeEventListener('scroll', controlDirection)
+		}
+	}, [])
+
 	const token = false
 
 	return (
 		<div
 			className={`bg-${
-				currentLocation.pathname == '/' && !show ? 'none' : 'primary-500'
+				currentLocation.pathname == '/' && !show && direction == 'up'
+					? 'none'
+					: 'primary-500'
 			}  text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50`}
 		>
 			<Link to={'/'}>
