@@ -7,7 +7,7 @@ export const Footer = () => {
 				<CopyrightSVG width="24" height="24" color="#FFFFFF" />
 				<span>2024 All rights reserved to BookLyn</span>
 			</p>
-			<p className="font-inter text-body-1">Terms of Service</p>
+			<p className="font-inter text-body-1 cursor-pointer">Terms of Service</p>
 		</div>
 	)
 }
