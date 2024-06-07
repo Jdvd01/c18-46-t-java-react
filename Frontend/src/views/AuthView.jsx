@@ -9,7 +9,7 @@ export const AuthView = () => {
 	const [isLoginSelected, setIsLoginSelected] = useState(true)
 
 	return (
-		<div className="min-h-screen pt-24 tablet:pt-28 pb-6 tablet:pb-20 mx-[-16px] tablet:mx-12 desktop:mx-0 flex flex-col justify-center items-center">
+		<div className="min-h-screen pt-24 tablet:pt-28 pb-6 tablet:pb-20 mx-[-16px] tablet:mx-12 desktop:mx-0 flex flex-col justify-center items-center px-4 tablet:px-8 desktop:px-40">
 			<div className="shadow-low-elevation bg-white w-full rounded-2xl px-4 flex flex-col justify-center items-center">
 				{/* Header text */}
 				<div className="flex flex-col w-full desktop:flex-row desktop:justify-center tablet:pb-[54px] desktop:py-20">
