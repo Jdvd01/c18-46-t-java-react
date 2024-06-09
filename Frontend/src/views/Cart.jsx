@@ -9,7 +9,8 @@ import { LeftArrowSVG } from "../assets/svg/LeftArrowSVG";
 // utils
 import isNotLastTab from "../utils/cart/tabs/isNotLastTab";
 import { ChangeTabButton } from "../components/cart/ChangeTabButton";
-import { OrdenSummary } from "../components/cart/cart_tab/OrdenSummary";
+import { OrdenSummary } from "../components/cart/OrdenSummary";
+import { CartProducts } from "../components/cart/cart_tab/CartProducts";
 
 const tabs = ["cart", "shipping", "payment"];
 
@@ -24,7 +25,7 @@ export const Cart = () => {
     <div className="min-h-screen bg-white">
       <div className="position absolute top-[152px] right-1/2  translate-x-[50%] w-[1120px]">
         {/* <TabNav currentTab={currentTab} tabs={tabs} /> */}
-        <TabNav tabs={tabs} currentTab={currentTab} />
+        {/* <TabNav tabs={tabs} currentTab={currentTab} />
         <OrdenSummary />
         <div className="position absolute top-2/3 right-[20px]">
           <ChangeTabButton
@@ -39,7 +40,8 @@ export const Cart = () => {
             addedStyles="border-[2px] py-[10px] border-primary-500 bg-white w-[170px] text-primary-500 text-nowrap"
             leftIcon={<LeftArrowSVG color="#352CE2" />}
           />
-        </div>
+        </div> */}
+        <CartProducts />
       </div>
     </div>
   );
