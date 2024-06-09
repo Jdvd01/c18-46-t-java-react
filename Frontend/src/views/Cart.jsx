@@ -1,47 +1,175 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { TabNav } from "../components/cart/TabNav";
 
 // components
+import { TabNav } from "../components/cart/TabNav";
+import { CartProducts } from "../components/cart/cart_tab/CartProducts";
+import { OrdenSummary } from "../components/cart/OrdenSummary";
 import { RightArrowSVG } from "../assets/svg/RightArrowSVG";
+import { ChangeTabButton } from "../components/cart/ChangeTabButton";
 import { LeftArrowSVG } from "../assets/svg/LeftArrowSVG";
 
 // utils
+import isLastTab from "../utils/cart/tabs/isLastTab";
 import isNotLastTab from "../utils/cart/tabs/isNotLastTab";
-import { ChangeTabButton } from "../components/cart/ChangeTabButton";
-import { OrdenSummary } from "../components/cart/OrdenSummary";
-import { CartProducts } from "../components/cart/cart_tab/CartProducts";
+import capitalizeWord from "../utils/cart/tabs/capitalizeWord";
+import { WarningIconSVG } from "../assets/svg/WarningIconSVG";
 
 const tabs = ["cart", "shipping", "payment"];
 
 export const Cart = () => {
+  // state
   const [currentTab, setCurrentTab] = useState(0);
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    setCurrentTab((currIdx) => (isNotLastTab(tabs, currIdx) ? currIdx + 1 : 0));
+  // handlers
+  const handleClickNavBtns = (direction) => {
+    if (direction === "prev") {
+      setCurrentTab((currIdx) => currIdx - 1);
+      return;
+    }
+    setCurrentTab((currIdx) => currIdx + 1);
+    return;
   };
   return (
-    <div className="min-h-screen bg-white">
-      <div className="position absolute top-[152px] right-1/2  translate-x-[50%] w-[1120px]">
-        {/* <TabNav currentTab={currentTab} tabs={tabs} /> */}
-        {/* <TabNav tabs={tabs} currentTab={currentTab} />
-        <OrdenSummary />
-        <div className="position absolute top-2/3 right-[20px]">
-          <ChangeTabButton
-            clickHandler={handleClick}
-            text="Shipping"
-            addedStyles="text-white bg-primary-500"
-            rightIcon={<RightArrowSVG color="#fff" />}
+    <div className="min-h-screen bg-white flex flex-col items-center">
+      <div>
+        <TabNav
+          addStyles="mt-[152px] mb-[40px]"
+          tabs={tabs}
+          currentTab={currentTab}
+        />
+        {/* Content */}
+        <div className="flex gap-[16px] flex-wrap tablet:justify-center">
+          {/* Cart Products */}
+          {tabs.at(currentTab) === "cart" && (
+            <CartProducts>
+              {/* buttons */}
+              <div className="w-[669px] flex justify-between items-center">
+                <ChangeTabButton
+                  clickHandler={
+                    currentTab === 0
+                      ? () => navigate("/")
+                      : () => handleClickNavBtns("prev")
+                  }
+                  text={`${
+                    currentTab === 0
+                      ? "Back To Books"
+                      : currentTab === 2
+                      ? "Shipping Info"
+                      : "Back To " + capitalizeWord(tabs[currentTab - 1])
+                  }`}
+                  addedStyles="border-[2px] py-[10px] border-primary-500 bg-white w-[170px] text-primary-500 text-nowrap"
+                  leftIcon={<LeftArrowSVG color="#352CE2" />}
+                />
+                {isLastTab(tabs, currentTab) ? (
+                  <span className="text-body-2 font-inter flex gap-[3px] text-yellow-500">
+                    <WarningIconSVG />
+                    Verify that all your information is correct
+                  </span>
+                ) : (
+                  <ChangeTabButton
+                    clickHandler={() => handleClickNavBtns("next")}
+                    text={
+                      currentTab < tabs.length - 1
+                        ? capitalizeWord(tabs.at(currentTab + 1))
+                        : ""
+                    }
+                    addedStyles="text-white bg-primary-500"
+                    rightIcon={<RightArrowSVG color="#fff" />}
+                  />
+                )}
+              </div>
+            </CartProducts>
+          )}
+          {/* Shipping Form */}
+          {tabs.at(currentTab) === "shipping" && (
+            <CartProducts>
+              {/* buttons */}
+              <div className="w-[669px] flex justify-between items-center">
+                <ChangeTabButton
+                  clickHandler={
+                    currentTab === 0
+                      ? () => navigate("/")
+                      : () => handleClickNavBtns("prev")
+                  }
+                  text={`${
+                    currentTab === 0
+                      ? "Back To Books"
+                      : currentTab === 2
+                      ? "Shipping Info"
+                      : "Back To " + capitalizeWord(tabs[currentTab - 1])
+                  }`}
+                  addedStyles="border-[2px] py-[10px] border-primary-500 bg-white w-[170px] text-primary-500 text-nowrap"
+                  leftIcon={<LeftArrowSVG color="#352CE2" />}
+                />
+                {isLastTab(tabs, currentTab) ? (
+                  <span className="text-body-2 font-inter flex gap-[3px] text-yellow-500">
+                    <WarningIconSVG />
+                    Verify that all your information is correct
+                  </span>
+                ) : (
+                  <ChangeTabButton
+                    clickHandler={() => handleClickNavBtns("next")}
+                    text={
+                      currentTab < tabs.length - 1
+                        ? capitalizeWord(tabs.at(currentTab + 1))
+                        : ""
+                    }
+                    addedStyles="text-white bg-primary-500"
+                    rightIcon={<RightArrowSVG color="#fff" />}
+                  />
+                )}
+              </div>
+            </CartProducts>
+          )}
+
+          {/* Payment Form */}
+          {tabs.at(currentTab) === "payment" && (
+            <CartProducts>
+              {/* buttons */}
+              <div className="w-[669px] flex justify-between items-center">
+                <ChangeTabButton
+                  clickHandler={
+                    currentTab === 0
+                      ? () => navigate("/")
+                      : () => handleClickNavBtns("prev")
+                  }
+                  text={`${
+                    currentTab === 0
+                      ? "Back To Books"
+                      : currentTab === 2
+                      ? "Shipping Info"
+                      : "Back To " + capitalizeWord(tabs[currentTab - 1])
+                  }`}
+                  addedStyles="border-[2px] py-[10px] border-primary-500 bg-white w-[170px] text-primary-500 text-nowrap"
+                  leftIcon={<LeftArrowSVG color="#352CE2" />}
+                />
+                {isLastTab(tabs, currentTab) ? (
+                  <span className="text-body-2 font-inter flex gap-[3px] text-yellow-500">
+                    <WarningIconSVG />
+                    Verify that all your information is correct
+                  </span>
+                ) : (
+                  <ChangeTabButton
+                    clickHandler={() => handleClickNavBtns("next")}
+                    text={
+                      currentTab < tabs.length - 1
+                        ? capitalizeWord(tabs.at(currentTab + 1))
+                        : ""
+                    }
+                    addedStyles="text-white bg-primary-500"
+                    rightIcon={<RightArrowSVG color="#fff" />}
+                  />
+                )}
+              </div>
+            </CartProducts>
+          )}
+
+          <OrdenSummary
+            checkoutDisabled={isNotLastTab(tabs, currentTab)}
           />
-          <ChangeTabButton
-            clickHandler={() => navigate("/")}
-            text="Back to Books"
-            addedStyles="border-[2px] py-[10px] border-primary-500 bg-white w-[170px] text-primary-500 text-nowrap"
-            leftIcon={<LeftArrowSVG color="#352CE2" />}
-          />
-        </div> */}
-        <CartProducts />
+        </div>
       </div>
     </div>
   );

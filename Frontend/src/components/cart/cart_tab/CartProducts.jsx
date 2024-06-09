@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { MarketBag } from "../../../assets/svg/MarketBag";
 import { ProductCard } from "./ProductCard";
 
-export const CartProducts = () => {
+export const CartProducts = ({ children }) => {
+  const navigate = useNavigate();
   return (
     <div
       className="w-[717px] h-[793px] py-[32px] px-[24px] flex flex-col gap-[24px]"
@@ -21,11 +23,14 @@ export const CartProducts = () => {
           </div>
         </div>
       </div>
-      {/* Content */}
-      <div className="w-[669px] h-[609px]">
+      {/* Product Cards */}
+      <div className="w-[669px] h-[609px] overflow-y-scroll flex flex-col gap-[24px]">
+        <ProductCard />
+        <ProductCard />
         <ProductCard />
       </div>
       {/* Buttons */}
+      {children}
     </div>
   );
 };

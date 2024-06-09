@@ -1,4 +1,4 @@
-export const OrdenSummary = () => {
+export const OrdenSummary = ({ checkoutDisabled }) => {
   return (
     <div
       style={{
@@ -26,8 +26,8 @@ export const OrdenSummary = () => {
         </h4>
         <div className="flex justify-center mt-[64px]">
           <button
-            disabled
-            className="w-[270px] h-[50px] rounded-[4px] text-body-1 font-inter disabled:text-text-200 disabled:bg-text-50 disabled:cursor-not-allowed cursor-pointer"
+            disabled={checkoutDisabled}
+            className={`w-[270px] h-[50px] rounded-[4px] text-body-1 font-inter disabled:text-text-200 disabled:bg-text-50 disabled:cursor-not-allowed cursor-pointer bg-primary-500 text-white hover:bg-primary-700 active:bg-primary-900`}
           >
             Procced to Checkout
           </button>
