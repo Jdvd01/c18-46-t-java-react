@@ -23,4 +23,8 @@ public class Address {
     @OneToOne(mappedBy = "address")
     @JsonBackReference
     private UserInfo userInfo;
+
+    public String getFullAddress() {
+        return String.join(", ", street, city, state, postalCode, country);
+    }
 }

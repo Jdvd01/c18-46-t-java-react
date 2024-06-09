@@ -20,10 +20,11 @@ public class OrderDetails {
     @JoinColumn(name = "order_id")
     @JsonBackReference
     private Order order;
+    private Long bookId;
     private String bookTitle;
     private String bookAuthor;
     private String ISBN;
-    private String lenguage;
+    private String language;
     private Integer quantity;
     private Float price;
 
