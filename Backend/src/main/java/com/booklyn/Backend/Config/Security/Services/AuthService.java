@@ -74,7 +74,7 @@ public class AuthService {
 
         Inventory inventory = inventoryRepository.save(Inventory.builder().build());
 
-        Cart cart = cartRepository.save(Cart.builder().build());
+        Cart cart = cartRepository.save(Cart.builder().totalPrice(0.0f).build());
 
         User user = userRepository.save(User.builder()
                 .email(request.getEmail())

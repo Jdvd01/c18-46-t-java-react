@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class SuccesResponse {
+public class SuccessResponse {
     private String statusCode;
     private String message;
     private String url;

@@ -15,10 +15,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long productId;
+    private Long bookId;
     private String bookTitle;
     private String bookAuthor;
     private String ISBN;
-    private String lenguage;
+    private String language;
     private Integer quantity;
     private Float price;
     @ManyToOne
