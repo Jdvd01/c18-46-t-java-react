@@ -1,5 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TabNav } from "../components/cart/TabNav";
+
+// components
+import { RightArrowSVG } from "../assets/svg/RightArrowSVG";
+import { LeftArrowSVG } from "../assets/svg/LeftArrowSVG";
 
 // utils
 import isNotLastTab from "../utils/cart/tabs/isNotLastTab";
@@ -10,6 +15,7 @@ const tabs = ["cart", "shipping", "payment"];
 
 export const Cart = () => {
   const [currentTab, setCurrentTab] = useState(0);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setCurrentTab((currIdx) => (isNotLastTab(tabs, currIdx) ? currIdx + 1 : 0));
@@ -20,7 +26,20 @@ export const Cart = () => {
         {/* <TabNav currentTab={currentTab} tabs={tabs} /> */}
         <TabNav tabs={tabs} currentTab={currentTab} />
         <OrdenSummary />
-        <ChangeTabButton clickHandler={handleClick} text="Shipping" />
+        <div className="position absolute top-2/3 right-[20px]">
+          <ChangeTabButton
+            clickHandler={handleClick}
+            text="Shipping"
+            addedStyles="text-white bg-primary-500"
+            rightIcon={<RightArrowSVG color="#fff" />}
+          />
+          <ChangeTabButton
+            clickHandler={() => navigate("/")}
+            text="Back to Books"
+            addedStyles="border-[2px] py-[10px] border-primary-500 bg-white w-[170px] text-primary-500 text-nowrap"
+            leftIcon={<LeftArrowSVG color="#352CE2" />}
+          />
+        </div>
       </div>
     </div>
   );
