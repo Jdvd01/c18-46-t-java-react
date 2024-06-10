@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,8 @@ public class BookController {
     //                              GET
     // =====================================================================
     @GetMapping("/allBooks")
-    public ResponseEntity<SuccessResponse> findAllBooksPageable(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
+    public ResponseEntity<SuccessResponse> findAllBooksPageable(@RequestParam(defaultValue = "0") int page,
+                                                                @RequestParam(defaultValue = "9") int size) {
         Page<BookDTO> books = bookService.getAllBooksPageable(page, size);
         return new ResponseEntity<>(SuccessResponse
                 .builder()
@@ -41,7 +43,7 @@ public class BookController {
                 .message("books found")
                 .object(books.getContent())
                 .url(url + "/allbooks" + "?page=" + page + "&size=" + size)
-                .build(), HttpStatus.CREATED);
+                .build(), HttpStatus.OK);
     }
 
     @GetMapping("/findAll")
@@ -56,7 +58,7 @@ public class BookController {
                 .message("books found")
                 .object(books)
                 .url(url + "/findAll")
-                .build(), HttpStatus.CREATED);
+                .build(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -71,7 +73,7 @@ public class BookController {
                 .message("Book found")
                 .object(book)
                 .url(url + "/" + id)
-                .build(), HttpStatus.CREATED);
+                .build(), HttpStatus.OK);
     }
 
 
@@ -93,14 +95,17 @@ public class BookController {
                 .message(String.format("Books found with criteria: Title='%s', Author='%s', Genre='%s', Pageable='%s'", title, author, genre, pageable))
                 .object(books.getContent())
                 .url(url + "/search")
-                .build(), HttpStatus.CREATED);
+                .build(), HttpStatus.OK);
     }
 
     @GetMapping("/searchByPrice")
     public ResponseEntity<SuccessResponse> findBooksByPrice(
             @RequestParam(required = false) Float minPrice,
             @RequestParam(required = false) Float maxPrice,
-            Pageable pageable) {
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "9") int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+
         Page<BookDTO> books = bookService.findBooksByRangePrice(minPrice, maxPrice, pageable);
         return new ResponseEntity<>(SuccessResponse
                 .builder()
@@ -108,15 +113,30 @@ public class BookController {
                 .message("Book found")
                 .object(books.getContent())
                 .url(url + "searchByprice")
-                .build(), HttpStatus.CREATED);
+                .build(), HttpStatus.OK);
     }
+
+    @GetMapping("/ByaverageRating")
+    public ResponseEntity<SuccessResponse> findBooksByRating(
+            @RequestParam(defaultValue = "1") int page,
+            @RequestParam(defaultValue = "9") int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
+        Page<BookDTO> books = bookService.findTopRatedBooks(pageable);
+        return ResponseEntity.ok().body(SuccessResponse.builder()
+                .object(books.getContent())
+                .url(url + "Top rate books")
+                .statusCode("200")
+                .message("Top rate books found")
+                .build());
+    }
+
     // =====================================================================
     //                              POST
     // =====================================================================
     @PostMapping()
     @PreAuthorize("hasAnyAuthority('ADMIN','CUSTOMER')")
-    public ResponseEntity<SuccessResponse> createBook(@Valid @RequestBody BookRequest request, HttpServletRequest httpRequest, BindingResult bindingResult) throws BadRequestException{
-        if(bindingResult.hasErrors()){
+    public ResponseEntity<SuccessResponse> createBook(@Valid @RequestBody BookRequest request, HttpServletRequest httpRequest, BindingResult bindingResult) throws BadRequestException {
+        if (bindingResult.hasErrors()) {
             throw new BadRequestException(bindingResult.getFieldError().getDefaultMessage());
         }
 

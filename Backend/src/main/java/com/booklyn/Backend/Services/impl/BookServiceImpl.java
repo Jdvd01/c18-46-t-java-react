@@ -5,8 +5,8 @@ import com.booklyn.Backend.DTO.Requests.BookRequest;
 import com.booklyn.Backend.Exceptions.ResourceAlreadyExistException;
 import com.booklyn.Backend.Exceptions.ResourceNotFoundException;
 import com.booklyn.Backend.Models.Book.Book;
-import com.booklyn.Backend.Models.Book.Category;
 import com.booklyn.Backend.Models.Book.ECategory;
+import com.booklyn.Backend.Models.Reviews.Review;
 import com.booklyn.Backend.Models.User.User;
 import com.booklyn.Backend.Repository.Book.BookRepository;
 import com.booklyn.Backend.Repository.User.UserRepository;
@@ -14,10 +14,6 @@ import com.booklyn.Backend.Services.BookService;
 import com.booklyn.Backend.Specification.BookSpecification;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -49,11 +45,13 @@ public class BookServiceImpl implements BookService {
     @Override
     public BookDTO createBook(Long userId, BookRequest request) throws BadRequestException {
 
-        if(bookRepository.existsByISBN(request.getISBN())) throw new ResourceAlreadyExistException("ISBN already exists.");
-        if(!ECategory.contains(request.getCategory())) throw new BadRequestException(request.getCategory() + " category doesn't exists.");
+        if (bookRepository.existsByISBN(request.getISBN()))
+            throw new ResourceAlreadyExistException("ISBN already exists.");
+        if (!ECategory.contains(request.getCategory()))
+            throw new BadRequestException(request.getCategory() + " category doesn't exists.");
 
         Optional<User> us = userRepository.findById(userId);
-        if(us.isEmpty()) throw new ResourceNotFoundException("User with id: " + userId + " doesn't exists");
+        if (us.isEmpty()) throw new ResourceNotFoundException("User with id: " + userId + " doesn't exists");
         User user = us.get();
 
         Book book = this.bookRepository.save(Book
@@ -76,6 +74,7 @@ public class BookServiceImpl implements BookService {
 
         return this.convertToDTO(book);
     }
+
 
     @Override
     public Page<BookDTO> getAllBooksPageable(int page, int size) {
@@ -133,6 +132,14 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public Page<BookDTO> findTopRatedBooks(Pageable pageable) {
+        Specification<Book> specification = BookSpecification.orderByAverageRating();
+        Page<Book> books = bookRepository.findAll(specification, pageable);
+        if (books.isEmpty()) throw new ResourceNotFoundException("None of the books has a rating");
+        return books.map(this::convertToDTO);
+    }
+
+    @Override
     public Page<BookDTO> findBooksByRangePrice(Float minPrice, Float maxPrice, Pageable pageable) {
         Specification<Book> specification = Specification
                 .where(BookSpecification.hasPriceBetween(minPrice, maxPrice));
@@ -144,6 +151,10 @@ public class BookServiceImpl implements BookService {
     }
 
     private BookDTO convertToDTO(Book book) {
+        double averageRating = book.getReviews().stream()
+                .mapToInt(Review::getRating)
+                .average()
+                .orElse(0.0);
         return BookDTO.builder()
                 .bookid(book.getBookid())
                 .ISBN(book.getISBN())
@@ -155,6 +166,7 @@ public class BookServiceImpl implements BookService {
                 .pages(book.getPages())
                 .language(book.getLanguage())
                 .category(book.getCategory().toString())
+                .averageRating(averageRating)
                 .build();
     }
 
