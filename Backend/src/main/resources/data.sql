@@ -1,0 +1,11 @@
+INSERT INTO books (bookid, ISBN, title, author, price, stock, synopsis, pages, language, category) VALUES
+                                                                                                                     (1, '978-3-16-148410-0', 'Book Title 1', 'Author 1', 9.99, 10, 'Synopsis 1', 200, 'English', 'ACTION'),
+                                                                                                                     (2, '978-3-16-148410-1', 'Book Title 2', 'Author 2', 14.99, 15, 'Synopsis 2', 300, 'Spanish', 'ADVENTURE'),
+                                                                                                                     (3, '978-3-16-148410-2', 'Book Title 3', 'Author 3', 19.99, 20, 'Synopsis 3', 250, 'French', 'EDUCATION'),
+                                                                                                                     (4, '978-3-16-148410-3', 'Book Title 4', 'Author 4', 24.99, 5, 'Synopsis 4', 150, 'German', 'CHILDRENS'),
+                                                                                                                     (5, '978-3-16-148410-4', 'Book Title 5', 'Author 5', 29.99, 8, 'Synopsis 5', 400, 'Italian', 'COMICS'),
+                                                                                                                     (6, '978-3-16-148410-5', 'Book Title 6', 'Author 6', 34.99, 12, 'Synopsis 6', 180, 'Dutch', 'MANGAS'),
+                                                                                                                     (7, '978-3-16-148410-6', 'Book Title 7', 'Author 7', 39.99, 7, 'Synopsis 7', 320, 'Chinese', 'FANTASY'),
+                                                                                                                     (8, '978-3-16-148410-7', 'Book Title 8', 'Author 8', 44.99, 9, 'Synopsis 8', 270, 'Korean', 'SCI_FI'),
+                                                                                                                     (9, '978-3-16-148410-8', 'Book Title 9', 'Author 9', 49.99, 4, 'Synopsis 9', 190, 'Portuguese', 'HISTORY'),
+                                                                                                                     (10, '978-3-16-148410-9', 'Book Title 10', 'Author 10', 54.99, 6, 'Synopsis 10', 210, 'Russian', 'RELIGION');

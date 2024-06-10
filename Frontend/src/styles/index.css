@@ -2,3 +2,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+@media (width <= 430px) {
+	.slider_1 {
+		background-image: url('../assets/slider_1_mobile.png');
+		background-size: 100% 100%;
+	}
+}
+@media (width > 430px) {
+	.slider_1 {
+		background-image: url('../assets/slider_1.jpg');
+		background-size: 100% 100%;
+	}
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	border-radius: 40px;
+	background-color: transparent;
+	opacity: #fbfbfe;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: #ccc;
+	border-radius: 40px;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background: #b3b3b3;
+	box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.2);
+}
+*::-webkit-scrollbar-thumb:active {
+	background-color: #999999;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+	border-radius: 40px;
+}

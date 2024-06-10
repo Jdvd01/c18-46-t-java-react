@@ -6,6 +6,7 @@
 // useSelector para utilizar los valores actuales del estado
 // useDispatch para utilizar las funciones que actualizan los estados
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 // Funciones que vienen desde el Slice del counter
 import {
 	decrement,
@@ -18,6 +19,7 @@ import { useEffect } from 'react'
 
 const Example = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate();
 
 	const { value } = useSelector((state) => state.counter)
 	const { myExampleKey, isLoading, isSuccess, isError } = useSelector(
@@ -38,7 +40,7 @@ const Example = () => {
 	console.log({ myExampleKey: myExampleKey })
 
 	return (
-		<div className="max-w-xl mx-auto p-6 bg-white rounded-lg shadow my-10">
+		<div className="w-full min-h-screen flex flex-col justify-center items-center bg-white rounded-lg">
 			<h1 className="text-2xl font-medium mb-5">Mi contador {value}</h1>
 
 			<div className="inline-flex items-center rounded-md shadow-sm">
@@ -59,6 +61,7 @@ const Example = () => {
 					<span>-1</span>
 				</button>
 			</div>
+				<button className='p-4 text-body-1 rounded-lg bg-red-500 text-white mt-4 hover:bg-red-300 active:bg-red-600' onClick={() => navigate('/useAuth')}>go to useAuth example</button>
 		</div>
 	)
 }
