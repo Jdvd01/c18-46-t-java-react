@@ -1,3 +1,9 @@
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
+// Functions
+import { getBooksByPage } from '../redux/reducers/book/bookSlice.js'
+
 // Components
 import { Hero } from '../components/home/Hero.jsx'
 import { CategoriesDropdown } from '../components/home/CategoriesDropdown.jsx'
@@ -10,19 +16,39 @@ import { Pagination } from '../components/home/Pagination.jsx'
 // Assets
 import { RightArrowSVG } from '../assets/svg/RightArrowSVG.jsx'
 
-// Hardcode info
-import { books } from '../components/home/HomeInfo.js'
-
 export const Home = () => {
+	const { books, isLoading } = useSelector((state) => state.book)
+	const dispatch = useDispatch()
+
+	const [page, setPage] = useState(0)
+	const booksTop = useRef(null)
+
+	const scrollTo = (reference) => {
+		reference.current.scrollIntoView()
+	}
+
+	const handleBooks = () => {
+		const token = localStorage.token
+		const data = {
+			page,
+			token,
+		}
+		dispatch(getBooksByPage(data))
+	}
+
+	useEffect(() => {
+		handleBooks()
+	}, [page])
+
 	return (
-		<div className="min-h-screen flex flex-col">
+		<div className="min-h-screen flex flex-col relative">
 			<Hero />
-			<main className="px-4 tablet:px-8 desktop:px-40">
+			<main className="px-4 tablet:px-8 desktop:px-40 ">
 				<div className="flex gap-4 desktop:hidden py-6">
 					<CategoriesDropdown />
 					<OrderButton />
 				</div>
-				<div className="hidden gap-4 desktop:flex">
+				<div className="hidden gap-4 desktop:flex" ref={booksTop}>
 					<SearchBar />
 					<OrderButton />
 				</div>
@@ -32,9 +58,11 @@ export const Home = () => {
 						{/* Books */}
 						<h1 className="font-dm-sans text-h1">All books</h1>
 						<div className="w-full flex flex-row overflow-x-scroll flex-nowrap desktop:overflow-x-visible desktop:flex-wrap desktop:justify-between gap-4 pr-1 pb-2">
-							{books.map((book) => (
-								<Card book={book} key={book.id} />
-							))}
+							{books.length > 0 ? (
+								books.map((book) => <Card book={book} key={book.id} />)
+							) : (
+								<p className="font-inter text-body-1">No books found!</p>
+							)}
 						</div>
 
 						{/* Icon for scroll in mobile devices */}
@@ -44,7 +72,12 @@ export const Home = () => {
 
 						{/* Pagination */}
 						<div className="flex justify-center gap-4">
-							<Pagination />
+							<Pagination
+								page={page}
+								setPage={setPage}
+								scrollTo={scrollTo}
+								booksTop={booksTop}
+							/>
 						</div>
 					</div>
 				</div>
