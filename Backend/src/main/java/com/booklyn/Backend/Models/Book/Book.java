@@ -1,9 +1,13 @@
 package com.booklyn.Backend.Models.Book;
 
+import com.booklyn.Backend.Models.Reviews.Review;
 import com.booklyn.Backend.Models.User.Inventory;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,5 +37,8 @@ public class Book {
     @JoinColumn(name = "inventory_id")
     @JsonBackReference
     private Inventory inventory;
-    // private Set<Review> review;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    @JsonBackReference
+    private List<Review> reviews = new ArrayList<>();
 }

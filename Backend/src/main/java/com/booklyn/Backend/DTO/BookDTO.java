@@ -18,4 +18,6 @@ public class BookDTO {
     private Integer pages;
     private String language;
     private String category;
+    private Double averageRating;
+
 }
