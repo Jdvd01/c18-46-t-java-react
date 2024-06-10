@@ -44,9 +44,12 @@ export const Home = () => {
 		<div className="min-h-screen flex flex-col relative">
 			<Hero />
 			<main className="px-4 tablet:px-8 desktop:px-40 ">
-				<div className="flex gap-4 desktop:hidden py-6">
-					<CategoriesDropdown />
-					<OrderButton />
+				<div className="flex flex-col pb-6 desktop:hidden">
+					<SearchBar />
+					<div className="flex gap-4">
+						<CategoriesDropdown />
+						<OrderButton />
+					</div>
 				</div>
 				<div className="hidden gap-4 desktop:flex" ref={booksTop}>
 					<SearchBar />
@@ -66,7 +69,7 @@ export const Home = () => {
 						</div>
 
 						{/* Icon for scroll in mobile devices */}
-						<span className="absolute right-1 top-1/2 rounded-full bg-white animate-pulse tablet:hidden">
+						<span className="absolute right-1 top-[48%] rounded-full bg-white animate-pulse desktop:hidden">
 							<RightArrowSVG color="#352CE2" />
 						</span>
 
