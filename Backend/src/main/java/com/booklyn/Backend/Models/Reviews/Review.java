@@ -1,6 +1,7 @@
 package com.booklyn.Backend.Models.Reviews;
 
 import com.booklyn.Backend.Models.Book.Book;
+import com.booklyn.Backend.Models.User.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -25,5 +26,10 @@ public class Review {
     @JoinColumn(name = "book_id")
     @JsonBackReference
     private Book book;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @JsonBackReference
+    private User user;
 
 }
