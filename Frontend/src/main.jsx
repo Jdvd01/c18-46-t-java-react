@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { Navbar } from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
+import { ExpandLessSVG } from './assets/svg/ExpandLessSVG.jsx'
 
 // Este archivo deberia ser solo de configuracion
 // Routers, providers y demas
@@ -16,8 +17,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 			<Navbar />
 
 			{/* Las rutas estan definidas en App.jsx */}
-			<App />
-
+			<div className="relative">
+				<App />
+				<span
+					className="p-2 bg-primary-500 rounded-full w-min absolute bottom-10 right-16"
+					onClick={() => window.scrollTo(0, 0)}
+				>
+					<ExpandLessSVG color="#FFFFFF" />
+				</span>
+			</div>
 			<Footer />
 		</BrowserRouter>
 	</Provider>
