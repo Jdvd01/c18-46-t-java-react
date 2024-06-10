@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 			<div className="relative">
 				<App />
 				<span
-					className="p-2 bg-primary-500 rounded-full w-min absolute bottom-10 right-16"
+					className="p-2 bg-primary-500 rounded-full w-min absolute bottom-4 right-4 desktop:bottom-10 desktop:right-16"
 					onClick={() => window.scrollTo(0, 0)}
 				>
 					<ExpandLessSVG color="#FFFFFF" />
