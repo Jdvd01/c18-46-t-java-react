@@ -8,7 +8,9 @@ const getBooksByPage = async (data) => {
 	)
 	const results = await response.json()
 
-	return results.object
+	if (results.statusCode == '200') return results.object
+
+	return []
 }
 
 const bookService = {
