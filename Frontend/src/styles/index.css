@@ -24,6 +24,7 @@
 	}
 }
 
+/* Scrollbar styles */
 *::-webkit-scrollbar {
 	width: 10px;
 	height: 10px;
@@ -45,4 +46,9 @@
 *::-webkit-scrollbar-track {
 	background: transparent;
 	border-radius: 40px;
+}
+
+/* Scroll animation */
+html {
+	scroll-behavior: smooth;
 }

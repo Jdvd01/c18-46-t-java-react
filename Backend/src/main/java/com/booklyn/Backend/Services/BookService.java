@@ -26,5 +26,9 @@ public interface BookService {
     Page<BookDTO> findBooksByCriteria(String title, String author, String genre, String isbn, Pageable pageable);
 
     Page<BookDTO> findBooksByRangePrice(Float minPrice, Float maxPrice, Pageable pageable);
+
     BookDTO createBook(Long id, BookRequest request) throws BadRequestException;
+
+    Page<BookDTO> findTopRatedBooks(Pageable pageable);
+
 }

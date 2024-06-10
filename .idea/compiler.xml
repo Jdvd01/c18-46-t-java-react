@@ -7,11 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Backend" />
         <module name="c18-46-t-java-react" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Backend" target="19" />
       <module name="backend" target="1.8" />
       <module name="backend (1) (org.example)" target="1.8" />
       <module name="Backend (2) (com.booklyn)" target="21" />

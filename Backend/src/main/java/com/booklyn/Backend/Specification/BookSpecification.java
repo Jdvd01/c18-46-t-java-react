@@ -1,6 +1,8 @@
 package com.booklyn.Backend.Specification;
 
 import com.booklyn.Backend.Models.Book.Book;
+import com.booklyn.Backend.Models.Reviews.Review;
+import jakarta.persistence.criteria.*;
 import org.springframework.data.jpa.domain.Specification;
 
 public class BookSpecification {
@@ -38,6 +40,19 @@ public class BookSpecification {
                 return criteriaBuilder.greaterThanOrEqualTo(root.get("price"), minPrice);
             }
             return criteriaBuilder.lessThanOrEqualTo(root.get("price"), maxPrice);
+        };
+    }
+
+    public static Specification<Book> orderByAverageRating() {
+        return new Specification<Book>() {
+            @Override
+            public Predicate toPredicate(Root<Book> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                Join<Book, Review> reviewsJoin = root.join("reviews", JoinType.LEFT);
+                query.groupBy(root.get("id"));
+                query.having(criteriaBuilder.isNotNull(criteriaBuilder.avg(reviewsJoin.get("rating"))));
+                query.orderBy(criteriaBuilder.desc(criteriaBuilder.avg(reviewsJoin.get("rating"))));
+                return query.getRestriction();
+            }
         };
     }
 }

@@ -2,6 +2,8 @@ package com.booklyn.Backend.Models.User;
 
 import com.booklyn.Backend.Models.Cart.Cart;
 import com.booklyn.Backend.Models.Order.Order;
+import com.booklyn.Backend.Models.Reviews.Review;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -42,10 +44,12 @@ public class User implements UserDetails {
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "cart_id")
+    @JsonIgnore
     private Cart cart;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Order> orders;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
