@@ -10,11 +10,11 @@ export const Card = ({ book }) => {
 		<div className="font-inter text-body-3 w-60 rounded-lg shadow-low-elevation desktop:w-[32%]">
 			<img
 				className="w-full object-cover rounded-t"
-				src={book.imagenURL}
+				src="https://placehold.co/400"
 				alt=""
 			/>
-			<div className="p-3 flex flex-col gap-2">
-				<p className="text-body-3 font-inter">{book.titulo}</p>
+			<div className="p-3 flex flex-col gap-2 max-h-max">
+				<p className="text-body-3 font-inter">{book.title}</p>
 				<div className="flex gap-4 justify-center py-2">
 					{rating.map((_, index) => (
 						<StarSVG width="24" height="24" color="#FFAD0D" key={index} />
@@ -25,7 +25,7 @@ export const Card = ({ book }) => {
 				</div>
 				<div className="flex justify-between items-center">
 					<p className="bg-primary-500 rounded-lg text-white text-center text-body-3 font-inter px-2 py-1">
-						{book.cantidad.toFixed(2)} $
+						{book.price.toFixed(2)} $
 					</p>
 					<span>
 						<CartSVG color={'#352CE2'} />
