@@ -17,7 +17,7 @@ import { Pagination } from '../components/home/Pagination.jsx'
 import { RightArrowSVG } from '../assets/svg/RightArrowSVG.jsx'
 
 export const Home = () => {
-	const { books, isLoading } = useSelector((state) => state.book)
+	const { books, message } = useSelector((state) => state.book)
 	const dispatch = useDispatch()
 
 	const [page, setPage] = useState(0)
@@ -28,11 +28,7 @@ export const Home = () => {
 	}
 
 	const handleBooks = () => {
-		const token = localStorage.token
-		const data = {
-			page,
-			token,
-		}
+		const data = { page }
 		dispatch(getBooksByPage(data))
 	}
 
@@ -62,7 +58,7 @@ export const Home = () => {
 						<h1 className="font-dm-sans text-h1">All books</h1>
 						<div className="w-full flex flex-row overflow-x-scroll flex-nowrap desktop:overflow-x-visible desktop:flex-wrap desktop:justify-between gap-4 pr-1 pb-2">
 							{books.length > 0 ? (
-								books.map((book) => <Card book={book} key={book.id} />)
+								books.map((book) => <Card book={book} key={book.bookid} />)
 							) : (
 								<p className="font-inter text-body-1">No books found!</p>
 							)}
