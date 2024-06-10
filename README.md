@@ -47,7 +47,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </tr>
       <tr>
         <td>
-          <img alt="axios" src="https://img.shields.io/badge/Axios-%235A29E4?logo=axios&logoColor=white">
+          <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
         </td>
         <td></td>
         <td>
@@ -55,9 +55,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
         </td>
       </tr>
       <tr>
-        <td>
-        <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
-        </td>
+        <td></td>
         <td></td>
         <td>
           <img alt="maven" src="https://img.shields.io/badge/Apache_maven-C71A36?logo=apachemaven&logoColor=white">
