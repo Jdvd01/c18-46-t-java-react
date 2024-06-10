@@ -205,7 +205,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
                 </a>
               </td>
               <td>
-                 <a href="www.linkedin.com/in/alfred-garcia142" target="_blank">
+                 <a href="https://www.linkedin.com/in/alfred-garcia142/" target="_blank">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a> 
               </td>
