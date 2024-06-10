@@ -22,7 +22,7 @@ export function Header({ singleBook }) {
 			</div>
 			<div className="flex gap-6 items-center">
 				<p className="text-primary-500 text-h2 font-dm-sans">
-					$ {singleBook.price.toFixed(2)}
+					$ {singleBook.price?.toFixed(2)}
 				</p>
 				<p className="font-inter text-body-1">Stock: {singleBook.stock}</p>
 			</div>
