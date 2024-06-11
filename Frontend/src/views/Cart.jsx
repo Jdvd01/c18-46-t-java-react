@@ -8,6 +8,7 @@ import { OrdenSummary } from "../components/cart/OrdenSummary";
 import { RightArrowSVG } from "../assets/svg/RightArrowSVG";
 import { ChangeTabButton } from "../components/cart/ChangeTabButton";
 import { LeftArrowSVG } from "../assets/svg/LeftArrowSVG";
+import { Payment } from "../components/cart/payment_tab/Payment";
 
 // utils
 import isLastTab from "../utils/cart/tabs/isLastTab";
@@ -43,9 +44,9 @@ export const Cart = () => {
         {/* Content */}
         <div
           className={`flex gap-[16px] flex-wrap ${
-            tabs.at(currentTab) === "shipping"
-              ? "justify-between"
-              : "justify-center"
+            tabs.at(currentTab) === "cart"
+              ? "justify-center"
+              : "justify-between"
           }`}
         >
           {/* Cart Products */}
@@ -133,9 +134,9 @@ export const Cart = () => {
 
           {/* Payment Form */}
           {tabs.at(currentTab) === "payment" && (
-            <CartProducts>
+            <Payment>
               {/* buttons */}
-              <div className="w-[669px] flex justify-between items-center">
+              <div className="w-[543px] flex justify-between items-center">
                 <ChangeTabButton
                   clickHandler={
                     currentTab === 0
@@ -170,7 +171,7 @@ export const Cart = () => {
                   />
                 )}
               </div>
-            </CartProducts>
+            </Payment>
           )}
 
           <OrdenSummary checkoutDisabled={isNotLastTab(tabs, currentTab)} />
