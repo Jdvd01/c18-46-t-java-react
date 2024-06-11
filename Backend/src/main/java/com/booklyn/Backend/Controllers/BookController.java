@@ -41,7 +41,7 @@ public class BookController {
                 .builder()
                 .statusCode("200")
                 .message("books found")
-                .object(books.getContent())
+                .object(books)
                 .url(url + "/allbooks" + "?page=" + page + "&size=" + size)
                 .build(), HttpStatus.OK);
     }
@@ -134,7 +134,7 @@ public class BookController {
     //                              POST
     // =====================================================================
     @PostMapping()
-    @PreAuthorize("hasAnyAuthority('ADMIN','CUSTOMER')")
+    @PreAuthorize("hasAnyAuthority('ADMIN','SALESMAN')")
     public ResponseEntity<SuccessResponse> createBook(@Valid @RequestBody BookRequest request, HttpServletRequest httpRequest, BindingResult bindingResult) throws BadRequestException {
         if (bindingResult.hasErrors()) {
             throw new BadRequestException(bindingResult.getFieldError().getDefaultMessage());

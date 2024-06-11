@@ -11,6 +11,9 @@ import com.booklyn.Backend.Repository.User.UserRepository;
 import com.booklyn.Backend.Services.ReviewService;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -54,19 +57,21 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<Review> findReviewsByBookId(Long bookId) {
+    public Page<Review> findReviewsByBookId(Long bookId, int page, int size) {
         Optional<Book> bo = bookRepository.findById(bookId);
         if (bo.isEmpty()) throw new ResourceNotFoundException("Book with id " + bookId + " not found");
         Book book = bo.get();
-        return reviewRepository.findByBook(book);
+        Pageable pageable = PageRequest.of(page, size);
+        return reviewRepository.findByBook(book, pageable);
     }
 
     @Override
-    public List<Review> findReviewsByUser(Long userId) {
+    public Page<Review> findReviewsByUser(Long userId, int page, int size) {
         Optional<User> us = userRepository.findById(userId);
-        if (us.isEmpty()) throw new ResourceNotFoundException("User with id: " + userId + " not found");
+        if (us.isEmpty()) throw new ResourceNotFoundException("User with id " + userId + " not found");
         User user = us.get();
-        return reviewRepository.findByUser(user);
+        Pageable pageable = PageRequest.of(page, size);
+        return reviewRepository.findByUser(user, pageable);
     }
 
     @Override
