@@ -5,6 +5,7 @@ import { ProductCard } from "./ProductCard";
 export const CartProducts = ({ children }) => {
   const navigate = useNavigate();
   return (
+    /* Container */
     <div
       className="w-[717px] h-[793px] py-[32px] px-[24px] flex flex-col gap-[24px]"
       style={{

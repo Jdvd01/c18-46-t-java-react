@@ -14,6 +14,7 @@ import isLastTab from "../utils/cart/tabs/isLastTab";
 import isNotLastTab from "../utils/cart/tabs/isNotLastTab";
 import capitalizeWord from "../utils/cart/tabs/capitalizeWord";
 import { WarningIconSVG } from "../assets/svg/WarningIconSVG";
+import { Shipping } from "../components/cart/Shipping";
 
 const tabs = ["cart", "shipping", "payment"];
 
@@ -40,7 +41,13 @@ export const Cart = () => {
           currentTab={currentTab}
         />
         {/* Content */}
-        <div className="flex gap-[16px] flex-wrap tablet:justify-center">
+        <div
+          className={`flex gap-[16px] flex-wrap ${
+            tabs.at(currentTab) === "shipping"
+              ? "justify-between"
+              : "justify-center"
+          }`}
+        >
           {/* Cart Products */}
           {tabs.at(currentTab) === "cart" && (
             <CartProducts>
@@ -84,9 +91,9 @@ export const Cart = () => {
           )}
           {/* Shipping Form */}
           {tabs.at(currentTab) === "shipping" && (
-            <CartProducts>
+            <Shipping>
               {/* buttons */}
-              <div className="w-[669px] flex justify-between items-center">
+              <div className="w-[543px] flex justify-between items-center">
                 <ChangeTabButton
                   clickHandler={
                     currentTab === 0
@@ -121,7 +128,7 @@ export const Cart = () => {
                   />
                 )}
               </div>
-            </CartProducts>
+            </Shipping>
           )}
 
           {/* Payment Form */}
@@ -166,9 +173,7 @@ export const Cart = () => {
             </CartProducts>
           )}
 
-          <OrdenSummary
-            checkoutDisabled={isNotLastTab(tabs, currentTab)}
-          />
+          <OrdenSummary checkoutDisabled={isNotLastTab(tabs, currentTab)} />
         </div>
       </div>
     </div>
