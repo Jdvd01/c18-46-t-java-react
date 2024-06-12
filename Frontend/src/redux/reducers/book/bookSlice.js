@@ -5,6 +5,7 @@ import booksService from './bookServices.js'
 const initialState = {
 	books: [],
 	singleBook: {},
+	pagesInfo: {},
 	isError: false,
 	isSuccess: false,
 	isLoading: false,
@@ -57,15 +58,19 @@ export const bookSlice = createSlice({
 				state.isLoading = true
 			})
 			.addCase(getBooksByPage.fulfilled, (state, action) => {
+				const { content } = action.payload
+
 				state.isLoading = false
 				state.isSuccess = true
-				state.books = action.payload
+				state.books = content
+				state.pagesInfo = action.payload
 			})
 			.addCase(getBooksByPage.rejected, (state, action) => {
 				state.isLoading = false
 				state.isError = true
 				state.message = action.payload
 				state.books = []
+				state.pagesInfo = {}
 			})
 
 			.addCase(getBookById.pending, (state) => {
