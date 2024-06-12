@@ -1,4 +1,3 @@
-import BookImg1 from "../../../assets/book1.png";
 import { RemoveProductSVG } from "../../../assets/svg/RemoveProductSVG";
 import {
   FullFilledStarSVG,
@@ -6,7 +5,7 @@ import {
 } from "../../../assets/svg/StarsSVG";
 import { QuantityInput } from "./QuantityInput";
 
-export const ProductCard = () => {
+export const ProductCard = ({ bookImg, title, author }) => {
   return (
     <div className="w-full bg-white h-[187px] rounded-[16px] border-[1px] border-text-50 flex justify-between pl-[16px] items-center">
       {/* image - name - rate - author */}
@@ -14,14 +13,14 @@ export const ProductCard = () => {
         <div className="w-[291px] h-[163px] flex gap-[16px] font-inter">
           <img
             className="rounded-[4px]"
-            src={BookImg1}
+            src={bookImg}
             width={129}
             height={163}
             alt="book image"
           />
           <div className="w-[146px] flex flex-col justify-around">
             <p className="text-body-3 text-text-500">
-              Harry Potter and the Sorcerer's Stone (Book 1)
+              {title}
             </p>
             <div className="flex px-[3.5px] justify-between">
               <FullFilledStarSVG />
@@ -30,7 +29,7 @@ export const ProductCard = () => {
               <FullFilledStarSVG />
               <HalfFilledStarSVG />
             </div>
-            <p>J.K. Rowling</p>
+            <p>{author}</p>
           </div>
         </div>
         {/* price */}

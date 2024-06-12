@@ -1,3 +1,7 @@
+import BookImg1 from "../../../assets/book1.png";
+import BookImg2 from "../../../assets/book2.png";
+import BookImg3 from "../../../assets/book3.png";
+
 import { useNavigate } from "react-router-dom";
 import { MarketBag } from "../../../assets/svg/MarketBag";
 import { ProductCard } from "./ProductCard";
@@ -26,9 +30,21 @@ export const CartProducts = ({ children }) => {
       </div>
       {/* Product Cards */}
       <div className="w-[669px] h-[609px] overflow-y-scroll flex flex-col gap-[24px]">
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <ProductCard
+          bookImg={BookImg1}
+          title="Harry Potter and the Sorcerer's Stone (Book 1)"
+          author="J.K. Rowling"
+        />
+        <ProductCard
+          bookImg={BookImg2}
+          title="Harry Potter and the Chamber of Secrets (Book 2)"
+          author="J.K. Rowling"
+        />
+        <ProductCard
+          bookImg={BookImg3}
+          title="Harry Potter and the Prisoner of Azkaban (Book 3"
+          author="J.K. Rowling"
+        />
       </div>
       {/* Buttons */}
       {children}

@@ -30,7 +30,7 @@ export const ShippingForm = () => {
           <option value="" disabled>
             Select your country
           </option>
-          <option value="bolivia">Argentina</option>
+          <option value="argentina">Argentina</option>
           <option value="bolivia">Bolivia</option>
           <option value="canada">Canada</option>
           <option value="mexico">Mexico</option>

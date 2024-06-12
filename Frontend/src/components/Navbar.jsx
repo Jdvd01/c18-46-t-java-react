@@ -78,7 +78,13 @@ export const Navbar = () => {
 						} w-min`}
 					>
 						<Link to={'/cart'} className="flex gap-2 items-center">
-							<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+							<div className="relative">
+								<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+								{/* number of items in cart */}
+								<div className="absolute rounded-full bg-red-500 text-white px-2 top-[-50%] right-[-50%] text-body-3 font-inter">
+									3
+								</div>
+							</div>
 							<span className="font-inter text-body-1 tablet:hidden desktop:block">
 								Cart
 							</span>
