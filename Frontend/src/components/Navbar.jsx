@@ -10,6 +10,10 @@ import { HomeSVG } from '../assets/svg/HomeSVG.jsx'
 import { BookSVG } from '../assets/svg/BookSVG.jsx'
 import { DashboardSVG } from '../assets/svg/DashboardSVG.jsx'
 
+// Logos
+import { WhiteLogoSVG } from '../assets/logo/WhiteLogoSVG.jsx'
+import { BlueLogoSVG } from '../assets/logo/BlueLogoSVG.jsx'
+
 import useAuth from '../hooks/useAuth.js'
 
 export const Navbar = () => {
@@ -44,8 +48,8 @@ export const Navbar = () => {
 					: 'bg-primary-500'
 			} text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50`}
 		>
-			<Link to={'/'}>
-				<img src="" alt="Logo" />
+			<Link to={'/'} className="flex justify-center items-center">
+				<WhiteLogoSVG />
 			</Link>
 			<button className="flex tablet:hidden" onClick={() => setShow(!show)}>
 				<MenuSVG height={'24'} width={'24'} color={'#FFFFFF'} />
