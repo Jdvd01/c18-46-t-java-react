@@ -2,6 +2,7 @@ package com.booklyn.Backend.Controllers;
 
 import com.booklyn.Backend.DTO.Requests.ReviewRequest;
 import com.booklyn.Backend.DTO.Responses.ErrorResponse;
+import com.booklyn.Backend.DTO.Responses.ReviewResponse;
 import com.booklyn.Backend.DTO.Responses.SuccessResponse;
 import com.booklyn.Backend.Models.Book.Book;
 import com.booklyn.Backend.Models.Reviews.Review;
@@ -93,27 +94,27 @@ public class ReviewController {
     @GetMapping("reviewsByBook")
     public ResponseEntity<SuccessResponse> getReviewsByBook(
             @RequestParam Long bookId,
-            @RequestParam int page,
-            @RequestParam int size) {
-        Page<Review> reviews = reviewService.findReviewsByBookId(bookId, page, size);
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "9") int size) {
+        Page<ReviewResponse> reviews = reviewService.findReviewsByBookId(bookId, page, size);
         return new ResponseEntity<>(SuccessResponse
                 .builder()
                 .statusCode("200")
                 .message("Reviews were successfully retrieved")
                 .url("/api/v1/reviews/reviewsByBook?bookId=" + bookId)
-                .object(reviews)
+                .object(reviews.getContent())
                 .build(), HttpStatus.OK);
     }
 
     @GetMapping("reviewsByUser")
     public ResponseEntity<SuccessResponse> getReviewsByUser(
             @RequestParam Long userId,
-            @RequestParam int page,
-            @RequestParam int size) {
-        Page<Review> reviews = reviewService.findReviewsByUser(userId, page, size);
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "9") int size) {
+        Page<ReviewResponse> reviews = reviewService.findReviewsByUser(userId, page, size);
         return new ResponseEntity<>(SuccessResponse
                 .builder()
-                .object(reviews)
+                .object(reviews.getContent())
                 .message("Reviews were successfully retrieved")
                 .url("/api/v1/reviews/reviewsByUser?userId=" + userId)
                 .statusCode("200")
