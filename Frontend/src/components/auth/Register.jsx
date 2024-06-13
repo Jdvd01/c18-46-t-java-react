@@ -205,7 +205,7 @@ export const Register = () => {
 					onChange={(e) => setPassword(e.target.value)}
 					value={password}
 					isInvalid={invalidPassword}
-					invalidMessage="Please enter a password with 6 or more characters"
+					invalidMessage="Please enter a password with 8 or more characters"
 				/>
 
 				<button
