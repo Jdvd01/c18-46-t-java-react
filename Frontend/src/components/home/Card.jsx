@@ -8,15 +8,14 @@ export const Card = ({ book }) => {
 	const ratingDifference = Array.from({ length: 5 - rating.length }, () => 1)
 
 	return (
-		<Link
-			to={`/book/${book.bookid}`}
-			className="font-inter text-body-3 w-60 rounded-lg shadow-low-elevation desktop:w-[32%] flex flex-col"
-		>
-			<img
-				className="w-full object-cover rounded-t flex-1"
-				src="https://placehold.co/400"
-				alt=""
-			/>
+		<div className="font-inter text-body-3 w-60 rounded-lg shadow-low-elevation desktop:w-[32%] flex flex-col">
+			<Link to={`/book/${book.bookid}`}>
+				<img
+					className="w-full object-cover rounded-t flex-1"
+					src="https://placehold.co/400"
+					alt={`${book.title} cover`}
+				/>
+			</Link>
 			<div className="p-3 flex flex-col gap-2 justify-between flex-1">
 				<p className="text-body-3 font-inter">{book.title}</p>
 				<div className="flex flex-col gap-4">
@@ -38,6 +37,6 @@ export const Card = ({ book }) => {
 					</div>
 				</div>
 			</div>
-		</Link>
+		</div>
 	)
 }
