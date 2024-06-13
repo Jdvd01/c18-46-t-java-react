@@ -13,18 +13,18 @@ function App() {
 	return (
 		<div className="bg-background">
 			<Routes>
+				{/* Static routes */}
 				<Route path="/" element={<Home />} />
 				<Route path="/auth" element={<AuthView />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/useAuth" element={<ExampleAuth />} />
+				<Route path="/dashboard" element={<BookRegister />} />
+
+				{/* Dinamic sections */}
 				<Route path="/book/:id" element={<SingleBook />} />
-				{/* 
-				Agregar mas rutas aqui...
-					Ejemplo
-					<Route path="/registro" element={<Registro />} />
-				*/}
+
+				{/* Error page */}
 				<Route path="*" element={<ErrorPage />} />
-				<Route path="/books" element={<BookRegister />} />
 			</Routes>
 		</div>
 	)
