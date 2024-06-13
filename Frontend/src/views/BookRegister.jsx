@@ -160,7 +160,7 @@ export const BookRegister = () => {
 						<div className="w-2/5">
 							<label
 								htmlFor="cover-photo"
-								className="text-body-1 font-inter flex justify-center"
+								className="text-body-1 font-inter flex justify-center mb-2"
 							>
 								Cover Book
 							</label>
