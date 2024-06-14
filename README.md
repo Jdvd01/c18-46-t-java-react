@@ -1,12 +1,10 @@
-﻿# Booklin (E-Commerce de libros)
+﻿# Booklyn (E-Commerce de libros)
 
 ![Base of a stack of b(1)](https://github.com/No-Country/c18-46-t-java-react/assets/169822154/9a6aea58-a737-4ad6-b2c8-5e8cf762299e)
 
 Es un proyecto de e-commerce diseñado para facilitar la compra y venta a través de una plataforma en línea. Su propósito es crear un mercado accesible y conveniente donde los amantes de los libros puedan encontrar una amplia variedad de títulos, desde bestsellers actuales hasta ediciones raras y coleccionables.
 
-
 ## 🛠️ Tecnologías
-
 
 <div>
   <table>
@@ -49,7 +47,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
       </tr>
       <tr>
         <td>
-          <img alt="axios" src="https://img.shields.io/badge/Axios-%235A29E4?logo=axios&logoColor=white">
+          <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
         </td>
         <td></td>
         <td>
@@ -57,9 +55,7 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
         </td>
       </tr>
       <tr>
-        <td>
-        <img alt="vite" src="https://img.shields.io/badge/Vite-%23646CFF?logo=vite&logoColor=white">
-        </td>
+        <td></td>
         <td></td>
         <td>
           <img alt="maven" src="https://img.shields.io/badge/Apache_maven-C71A36?logo=apachemaven&logoColor=white">
@@ -82,7 +78,6 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
     </tbody>
   </table>
 </div>
-
 
 ## 🧑‍🤝‍🧑 Equipo
 
@@ -176,19 +171,6 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Virginia Giardino</td>
-              <td>
-                <a href="https://github.com/GiardinoV" target="_blank">
-                  <img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
-                </a>
-              </td>
-              <td>
-                <a href="https://www.linkedin.com/in/virginia-giardino-904a13203/" target="_blank">
-                  <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
-                </a>
-              </td>
-            </tr>
             <tr>
               <td>Kevin Barrutia</td>
               <td>
@@ -299,12 +281,12 @@ Es un proyecto de e-commerce diseñado para facilitar la compra y venta a travé
                 </a>
               </td>
               <td>
-                <a href="https://www.linkedin.com/in/davidcayo/">
+                <a href="https://www.linkedin.com/in/david-cayo-184568230/">
                   <img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
                 </a>
               </td>
               <td>
-                <a href="https://www.behance.net/nehuengrosso">
+                <a href="https://www.behance.net/davidcayo">
                   <img src="https://img.shields.io/badge/behance-%231769FF.svg?&style=for-the-badge&logo=behance&logoColor=white">
                 </a>
               </td>
