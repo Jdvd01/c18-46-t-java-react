@@ -10,6 +10,10 @@ import { HomeSVG } from '../assets/svg/HomeSVG.jsx'
 import { BookSVG } from '../assets/svg/BookSVG.jsx'
 import { DashboardSVG } from '../assets/svg/DashboardSVG.jsx'
 
+// Logos
+import { WhiteLogoSVG } from '../assets/logo/WhiteLogoSVG.jsx'
+import { BlueLogoSVG } from '../assets/logo/BlueLogoSVG.jsx'
+
 import useAuth from '../hooks/useAuth.js'
 
 export const Navbar = () => {
@@ -44,8 +48,8 @@ export const Navbar = () => {
 					: 'bg-primary-500'
 			} text-white flex justify-between items-center flex-wrap tablet:flex-nowrap p-4 tablet:py-5 tablet:px-8 fixed top-0 min-w-full z-50`}
 		>
-			<Link to={'/'}>
-				<img src="" alt="Logo" />
+			<Link to={'/'} className="flex justify-center items-center">
+				<WhiteLogoSVG />
 			</Link>
 			<button className="flex tablet:hidden" onClick={() => setShow(!show)}>
 				<MenuSVG height={'24'} width={'24'} color={'#FFFFFF'} />
@@ -74,7 +78,13 @@ export const Navbar = () => {
 						} w-min`}
 					>
 						<Link to={'/cart'} className="flex gap-2 items-center">
-							<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+							<div className="relative">
+								<CartSVG height={'24'} width={'24'} color={'#FFFFFF'} />
+								{/* number of items in cart */}
+								<div className="absolute rounded-full bg-red-500 text-white px-2 top-[-50%] right-[-50%] text-body-3 font-inter">
+									3
+								</div>
+							</div>
 							<span className="font-inter text-body-1 tablet:hidden desktop:block">
 								Cart
 							</span>
